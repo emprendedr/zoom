@@ -112,6 +112,7 @@
             border-radius: 15px;
             color: white;
             margin-bottom: 30px;
+            position: relative;
         }
         
         .countdown-title {
@@ -169,53 +170,103 @@
             font-size: 1.2rem;
         }
         
-        .time-zones {
+        .time-zone-btn-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .time-zone-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(30, 60, 114, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .time-zone-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.6);
+            background: linear-gradient(to right, #2a5298, #1e3c72);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #1e3799;
+            cursor: pointer;
+        }
+        
+        .close-modal:hover {
+            color: #FF416C;
+        }
+        
+        .time-zone-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
         
-        .time-zone {
+        .time-zone-card {
             background-color: #f1f8ff;
             padding: 15px;
             border-radius: 8px;
             border: 1px solid #d0e2ff;
+            text-align: center;
         }
         
         .time-zone-name {
             font-weight: bold;
             color: #1e3799;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
         }
         
         .time-zone-time {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: #0c2461;
-            margin-top: 5px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(to right, #FF416C, #FF4B2B);
-            color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
             font-weight: bold;
-            font-size: 1.3rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
-            margin-top: 20px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
         }
         
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
-            background: linear-gradient(to right, #FF4B2B, #FF416C);
+        .time-zone-date {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
         }
         
         .video-container {
@@ -223,6 +274,22 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
         
         .video-placeholder {
@@ -270,6 +337,49 @@
             font-weight: bold;
         }
         
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #FF416C, #FF4B2B);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
+            background: linear-gradient(to right, #FF4B2B, #FF416C);
+        }
+        
+        .btn-join {
+            background: linear-gradient(to right, #00b09b, #96c93d);
+            box-shadow: 0 5px 15px rgba(0, 176, 155, 0.4);
+        }
+        
+        .btn-join:hover {
+            background: linear-gradient(to right, #96c93d, #00b09b);
+            box-shadow: 0 8px 20px rgba(0, 176, 155, 0.6);
+        }
+        
+        .pre-session-message {
+            background-color: #e8f4fc;
+            border-left: 5px solid #1e3799;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+            text-align: center;
+        }
+        
         footer {
             text-align: center;
             padding: 30px 0;
@@ -314,6 +424,15 @@
             .countdown-value {
                 font-size: 2rem;
             }
+            
+            .modal-content {
+                padding: 20px;
+                width: 95%;
+            }
+            
+            .time-zone-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -333,8 +452,15 @@
                     <h2>¡No te quedes fuera de esta revolución!</h2>
                     <p class="intro-text">La Inteligencia Artificial está transformando la manera en que ofrecemos servicios. Descubre herramientas y estrategias que están cambiando el juego a nivel mundial y cómo puedes implementarlas en tu negocio hoy mismo.</p>
                     
+                    <!-- Video de introducción -->
+                    <div class="video-container">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/cv4RUNoRpZU" title="Video de introducción sobre automatización con IA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    
                     <div class="countdown-container">
-                        <div class="countdown-title">La sesión comienza en:</div>
+                        <div class="countdown-title">La sesión en vivo comienza en:</div>
                         <div id="countdown">
                             <div class="countdown-item">
                                 <span class="countdown-value" id="days">00</span>
@@ -353,15 +479,22 @@
                                 <span class="countdown-label">Segundos</span>
                             </div>
                         </div>
+                        
+                        <!-- Botón para ver zonas horarias -->
+                        <div class="time-zone-btn-container">
+                            <button class="time-zone-btn" id="show-time-zones">
+                                <i class="fas fa-globe-americas"></i> Ver horario en tu país
+                            </button>
+                        </div>
                     </div>
                     
-                    <div class="video-container">
-                        <div class="video-placeholder">
-                            <div class="video-icon">
-                                <i class="fas fa-play-circle"></i>
-                            </div>
-                            <h3>Video de Introducción</h3>
-                            <p>Mira este video para entender la importancia de la automatización con IA en el mundo actual</p>
+                    <!-- Video antes de la reunión -->
+                    <div class="video-container" id="pre-meeting-video">
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/go3ZHb2lg5M" title="Video preparatorio antes de la reunión" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="pre-session-message">
+                            <p><strong>Mira este video antes de unirte a la sesión en vivo para prepararte y sacar el máximo provecho.</strong></p>
                         </div>
                     </div>
                     
@@ -370,7 +503,7 @@
                         <div class="detail-item">
                             <div class="detail-icon"><i class="fas fa-calendar-alt"></i></div>
                             <div>
-                                <strong>Fecha y hora principal:</strong><br>
+                                <strong>Fecha y hora principal (Los Ángeles):</strong><br>
                                 <span id="main-time">Calculando...</span>
                             </div>
                         </div>
@@ -395,8 +528,12 @@
                         </div>
                     </div>
                     
-                    <a href="https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1&omn=88364061904" target="_blank" class="btn">
-                        <i class="fas fa-door-open"></i> ÚNETE A LA SESIÓN AHORA
+                    <!-- Botón de unirse a la reunión (se activa cuando es hora) -->
+                    <button id="join-meeting-btn" class="btn">
+                        <i class="fas fa-hourglass-half"></i> LA SESIÓN COMENZARÁ PRONTO
+                    </button>
+                    <a href="https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1&omn=88364061904" target="_blank" id="direct-zoom-link" style="display: none;" class="btn btn-join">
+                        <i class="fas fa-door-open"></i> ÚNETE A LA SESIÓN EN VIVO AHORA
                     </a>
                 </div>
                 
@@ -410,22 +547,12 @@
                         <li>Durante la sesión, habrá un espacio para preguntas al final. Prepara tus dudas sobre automatización con IA.</li>
                         <li>Si es tu primera vez usando Zoom, <span class="warning">descarga la aplicación con anticipación</span> desde zoom.us/download</li>
                         <li>Esta sesión se llevará a cabo de lunes a viernes a la misma hora. Si no puedes hoy, regresa mañana.</li>
+                        <li><span class="warning">NO compartas el enlace de Zoom ni el código de acceso con personas no invitadas.</span></li>
                     </ul>
                 </div>
             </div>
             
             <div class="side-content">
-                <div class="card">
-                    <h2><i class="fas fa-globe-americas"></i> Horarios por Región</h2>
-                    <p>La sesión se realiza de lunes a viernes a la misma hora. Aquí puedes ver el horario en tu región:</p>
-                    
-                    <div class="time-zones" id="time-zones-container">
-                        <!-- Las zonas horarias se generarán con JavaScript -->
-                    </div>
-                    
-                    <p style="margin-top: 20px; font-style: italic; color: #666;">*Los horarios se actualizan automáticamente según tu zona horaria local.</p>
-                </div>
-                
                 <div class="card">
                     <h2><i class="fas fa-bullhorn"></i> ¿Qué Aprenderás?</h2>
                     <ul style="padding-left: 20px; margin-top: 15px;">
@@ -435,27 +562,45 @@
                         <li>El futuro de la automatización y cómo prepararte para los próximos cambios</li>
                         <li>Recursos gratuitos para comenzar tu proceso de automatización hoy mismo</li>
                     </ul>
-                    
-                    <div class="video-container" style="margin-top: 25px;">
-                        <div class="video-placeholder">
-                            <div class="video-icon">
-                                <i class="fas fa-list-alt"></i>
-                            </div>
-                            <h3>Video de Indicaciones Finales</h3>
-                            <p>Al final de la sesión, mira este video con los pasos a seguir y recursos adicionales</p>
-                        </div>
-                    </div>
                 </div>
                 
                 <div class="card">
                     <h2><i class="fas fa-calendar-check"></i> Sesiones Programadas</h2>
-                    <p>Esta sesión se realiza <strong>de lunes a viernes</strong> a la misma hora. No necesitas registrarte nuevamente para futuras sesiones.</p>
+                    <p>Esta sesión se realiza <strong>de lunes a viernes</strong> a las 5:00 PM (hora de Los Ángeles). No necesitas registrarte nuevamente para futuras sesiones.</p>
                     <p>Simplemente guarda esta página y regresa cuando desees participar nuevamente.</p>
                     
                     <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 20px;">
                         <h3 style="margin-top: 0; color: #1e3799;"><i class="fas fa-sync-alt"></i> Automatización de Horarios</h3>
                         <p>Los horarios mostrados se actualizan automáticamente para reflejar la próxima sesión disponible de lunes a viernes.</p>
                     </div>
+                </div>
+                
+                <div class="card">
+                    <h2><i class="fas fa-users"></i> ¿Para Quién es Esta Sesión?</h2>
+                    <ul style="padding-left: 20px; margin-top: 15px;">
+                        <li>Emprendedores que quieren escalar su negocio</li>
+                        <li>Profesionales de servicios que desean optimizar su tiempo</li>
+                        <li>Dueños de negocios que buscan reducir costos operativos</li>
+                        <li>Freelancers que quieren aumentar su productividad</li>
+                        <li>Cualquier persona interesada en el futuro del trabajo y la tecnología</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal para zonas horarias -->
+        <div id="timeZoneModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2><i class="fas fa-globe-americas"></i> Horario de la Sesión por País</h2>
+                <p>La sesión comienza a las <strong>5:00 PM (hora de Los Ángeles)</strong>. Aquí puedes ver a qué hora será en tu país:</p>
+                
+                <div class="time-zone-grid" id="time-zone-grid">
+                    <!-- Las zonas horarias se generarán con JavaScript -->
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
+                    <p><strong>Nota:</strong> Los horarios mostrados corresponden a la próxima sesión programada de lunes a viernes. Se ajustan automáticamente según la fecha de la sesión.</p>
                 </div>
             </div>
         </div>
@@ -473,21 +618,21 @@
     </div>
 
     <script>
-        // Configuración inicial - sesión a las 5:00 PM hora del Pacífico (US and Canada)
+        // Configuración inicial - sesión a las 5:00 PM hora de Los Ángeles (Pacífico)
         const sessionHour = 17; // 5:00 PM
         const sessionMinute = 0;
         
-        // Zonas horarias a mostrar (relativas a la hora del Pacífico)
+        // Zonas horarias con sus offsets relativos a Los Ángeles (PST/PDT)
         const timeZones = [
-            { name: "Pacífico (US & Canada)", offset: 0 },
-            { name: "Texas (Central Time)", offset: 2 },
-            { name: "Nueva York (Eastern Time)", offset: 3 },
-            { name: "México (Centro)", offset: 2 },
-            { name: "Honduras", offset: 2 },
-            { name: "Colombia", offset: 3 },
-            { name: "Venezuela", offset: 4 },
-            { name: "Perú", offset: 3 },
-            { name: "España (Peninsular)", offset: 9 }
+            { name: "Los Ángeles (PST/PDT)", offset: 0, country: "EE.UU." },
+            { name: "Texas (CST/CDT)", offset: 2, country: "EE.UU." },
+            { name: "Nueva York (EST/EDT)", offset: 3, country: "EE.UU." },
+            { name: "Ciudad de México (CST)", offset: 2, country: "México" },
+            { name: "Tegucigalpa", offset: 2, country: "Honduras" },
+            { name: "Bogotá", offset: 3, country: "Colombia" },
+            { name: "Caracas", offset: 4, country: "Venezuela" },
+            { name: "Lima", offset: 3, country: "Perú" },
+            { name: "Madrid (CET/CEST)", offset: 9, country: "España" }
         ];
         
         // Función para formatear la hora
@@ -508,20 +653,44 @@
             return date.toLocaleDateString('es-ES', options);
         }
         
+        // Función para obtener el offset de Los Ángeles (considerando horario de verano)
+        function getLAOffset(date) {
+            // Determinar si es horario de verano en Los Ángeles (PDT)
+            // PDT: segundo domingo de marzo al primer domingo de noviembre
+            const year = date.getFullYear();
+            
+            // Encontrar segundo domingo de marzo
+            let march = new Date(year, 2, 1);
+            let marchDay = march.getDay();
+            let secondSundayMarch = 8 + (0 - marchDay + 7) % 7;
+            let startDST = new Date(year, 2, secondSundayMarch, 2);
+            
+            // Encontrar primer domingo de noviembre
+            let november = new Date(year, 10, 1);
+            let novemberDay = november.getDay();
+            let firstSundayNovember = 1 + (0 - novemberDay + 7) % 7;
+            let endDST = new Date(year, 10, firstSundayNovember, 2);
+            
+            // Verificar si la fecha está dentro del período de horario de verano
+            if (date >= startDST && date < endDST) {
+                return -7; // PDT (UTC-7)
+            } else {
+                return -8; // PST (UTC-8)
+            }
+        }
+        
         // Función para obtener la próxima sesión (de lunes a viernes)
         function getNextSessionDate() {
             const now = new Date();
-            const today = new Date(now.getTime());
             
-            // Crear fecha objetivo para hoy a las 5:00 PM hora del Pacífico
-            const targetDate = new Date(today);
+            // Crear fecha objetivo para hoy a las 5:00 PM hora de Los Ángeles
+            const targetDate = new Date(now);
             targetDate.setHours(sessionHour, sessionMinute, 0, 0);
             
-            // Convertir a hora del Pacífico (asumiendo que el servidor está en UTC)
-            // En un caso real, usaríamos una librería como moment-timezone
-            const pacificOffset = -7 * 60; // PDT offset en minutos (UTC-7)
-            const localOffset = today.getTimezoneOffset();
-            const offsetDifference = pacificOffset - localOffset;
+            // Ajustar a hora de Los Ángeles
+            const laOffset = getLAOffset(targetDate) * 60; // Convertir a minutos
+            const localOffset = now.getTimezoneOffset();
+            const offsetDifference = laOffset - localOffset;
             
             // Ajustar la fecha objetivo según la diferencia horaria
             targetDate.setMinutes(targetDate.getMinutes() + offsetDifference);
@@ -547,6 +716,31 @@
             return targetDate;
         }
         
+        // Función para calcular la hora en diferentes zonas horarias
+        function calculateTimeZones(sessionDate) {
+            const laOffset = getLAOffset(sessionDate);
+            const results = [];
+            
+            timeZones.forEach(zone => {
+                // Crear una nueva fecha ajustada según el offset
+                const zoneDate = new Date(sessionDate.getTime());
+                
+                // Ajustar según la diferencia con Los Ángeles
+                // zone.offset es la diferencia en horas con Los Ángeles
+                zoneDate.setHours(zoneDate.getHours() + zone.offset);
+                
+                results.push({
+                    name: zone.name,
+                    country: zone.country,
+                    time: formatTime(zoneDate),
+                    date: formatDate(zoneDate),
+                    fullDate: zoneDate
+                });
+            });
+            
+            return results;
+        }
+        
         // Función para actualizar el contador
         function updateCountdown() {
             const nextSession = getNextSessionDate();
@@ -555,9 +749,18 @@
             
             if (timeDiff <= 0) {
                 // Si ya pasó la sesión, recalcular para la siguiente
-                nextSession = getNextSessionDate();
+                const newNextSession = getNextSessionDate();
+                updateCountdownWithDate(newNextSession);
                 return;
             }
+            
+            updateCountdownWithDate(nextSession);
+        }
+        
+        // Función auxiliar para actualizar contador con fecha específica
+        function updateCountdownWithDate(nextSession) {
+            const now = new Date();
+            const timeDiff = nextSession - now;
             
             // Calcular días, horas, minutos y segundos
             const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
@@ -574,30 +777,49 @@
             // Actualizar la fecha y hora principal
             document.getElementById('main-time').textContent = `${formatDate(nextSession)} a las ${formatTime(nextSession)}`;
             
-            // Actualizar las zonas horarias
-            updateTimeZones(nextSession);
+            // Controlar la visibilidad del botón de unirse
+            const joinBtn = document.getElementById('join-meeting-btn');
+            const directLink = document.getElementById('direct-zoom-link');
+            
+            // Mostrar botón de unirse cuando falten 10 minutos o menos
+            if (timeDiff <= 10 * 60 * 1000 && timeDiff > 0) {
+                joinBtn.style.display = 'none';
+                directLink.style.display = 'block';
+                joinBtn.innerHTML = '<i class="fas fa-door-open"></i> ÚNETE A LA SESIÓN EN VIVO AHORA';
+            } else if (timeDiff <= 0) {
+                // Si ya es hora de la sesión
+                joinBtn.style.display = 'none';
+                directLink.style.display = 'block';
+            } else {
+                // Si aún no es hora
+                joinBtn.style.display = 'block';
+                directLink.style.display = 'none';
+                joinBtn.innerHTML = `<i class="fas fa-hourglass-half"></i> LA SESIÓN COMENZARÁ EN ${days > 0 ? days + ' DÍAS' : hours + ' HORAS'}`;
+            }
         }
         
-        // Función para actualizar las zonas horarias
-        function updateTimeZones(sessionDate) {
-            const container = document.getElementById('time-zones-container');
+        // Función para mostrar zonas horarias en el modal
+        function showTimeZones() {
+            const nextSession = getNextSessionDate();
+            const timeZonesData = calculateTimeZones(nextSession);
+            const container = document.getElementById('time-zone-grid');
             container.innerHTML = '';
             
-            timeZones.forEach(zone => {
-                // Crear una nueva fecha ajustada según el offset
-                const zoneDate = new Date(sessionDate.getTime());
-                zoneDate.setHours(zoneDate.getHours() + zone.offset);
-                
+            timeZonesData.forEach(zone => {
                 const zoneElement = document.createElement('div');
-                zoneElement.className = 'time-zone';
+                zoneElement.className = 'time-zone-card';
                 zoneElement.innerHTML = `
                     <div class="time-zone-name">${zone.name}</div>
-                    <div class="time-zone-time">${formatTime(zoneDate)}</div>
-                    <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">${formatDate(zoneDate)}</div>
+                    <div style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">${zone.country}</div>
+                    <div class="time-zone-time">${zone.time}</div>
+                    <div class="time-zone-date">${zone.date}</div>
                 `;
                 
                 container.appendChild(zoneElement);
             });
+            
+            // Mostrar el modal
+            document.getElementById('timeZoneModal').style.display = 'flex';
         }
         
         // Inicializar la página
@@ -606,7 +828,23 @@
             updateCountdown();
             setInterval(updateCountdown, 1000);
             
-            // Añadir efecto de escritura al subtítulo
+            // Configurar botón para mostrar zonas horarias
+            document.getElementById('show-time-zones').addEventListener('click', showTimeZones);
+            
+            // Configurar cierre del modal
+            document.querySelector('.close-modal').addEventListener('click', function() {
+                document.getElementById('timeZoneModal').style.display = 'none';
+            });
+            
+            // Cerrar modal al hacer clic fuera de él
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('timeZoneModal');
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // Efecto de escritura al subtítulo
             const subtitle = document.querySelector('.subtitle');
             const originalText = subtitle.textContent;
             subtitle.textContent = '';
@@ -622,6 +860,9 @@
             
             // Iniciar efecto después de un breve retraso
             setTimeout(typeWriter, 1000);
+            
+            // Precargar las zonas horarias
+            showTimeZones();
         });
     </script>
 </body>
