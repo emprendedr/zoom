@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descubre cómo Automatizar tus Servicios con IA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c2461 0%, #1e3799 50%, #4a69bd 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #f8f9fa;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .highlight {
+            color: #FFD700;
+            font-weight: bold;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .main-content {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .side-content {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        h2 {
+            color: #1e3799;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f1f1f1;
+        }
+        
+        h3 {
+            color: #0c2461;
+            margin: 20px 0 15px;
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #444;
+        }
+        
+        .countdown-container {
+            text-align: center;
+            padding: 25px;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            border-radius: 15px;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .countdown-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+        
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 20px 15px;
+            min-width: 100px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .countdown-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+            color: #FFD700;
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        
+        .zoom-details {
+            background-color: #f8f9fa;
+            border-left: 5px solid #1e3799;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .detail-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .detail-icon {
+            color: #1e3799;
+            margin-right: 12px;
+            margin-top: 3px;
+            font-size: 1.2rem;
+        }
+        
+        .time-zones {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .time-zone {
+            background-color: #f1f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #d0e2ff;
+        }
+        
+        .time-zone-name {
+            font-weight: bold;
+            color: #1e3799;
+        }
+        
+        .time-zone-time {
+            font-size: 1.3rem;
+            color: #0c2461;
+            margin-top: 5px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #FF416C, #FF4B2B);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
+            background: linear-gradient(to right, #FF4B2B, #FF416C);
+        }
+        
+        .video-container {
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-placeholder {
+            background-color: #2c3e50;
+            color: white;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .video-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #FFD700;
+        }
+        
+        .instructions {
+            background-color: #fff9e6;
+            border: 2px dashed #FFD700;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .instructions h3 {
+            color: #e67e22;
+            margin-top: 0;
+        }
+        
+        .instructions-list {
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+        
+        .instructions-list li {
+            margin-bottom: 12px;
+        }
+        
+        .warning {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 40px;
+        }
+        
+        .social-icons {
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 15px 10px;
+            }
+            
+            .countdown-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h1>Descubre cómo <span class="highlight">Automatizar tus Servicios</span> con IA</h1>
+            <p class="subtitle">Nuestro equipo de automatización te invita a conocer algo que está en lanzamiento y en tendencia a nivel global...</p>
+        </header>
+        
+        <div class="content-wrapper">
+            <div class="main-content">
+                <div class="card">
+                    <h2>¡No te quedes fuera de esta revolución!</h2>
+                    <p class="intro-text">La Inteligencia Artificial está transformando la manera en que ofrecemos servicios. Descubre herramientas y estrategias que están cambiando el juego a nivel mundial y cómo puedes implementarlas en tu negocio hoy mismo.</p>
+                    
+                    <div class="countdown-container">
+                        <div class="countdown-title">La sesión comienza en:</div>
+                        <div id="countdown">
+                            <div class="countdown-item">
+                                <span class="countdown-value" id="days">00</span>
+                                <span class="countdown-label">Días</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-value" id="hours">00</span>
+                                <span class="countdown-label">Horas</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-value" id="minutes">00</span>
+                                <span class="countdown-label">Minutos</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-value" id="seconds">00</span>
+                                <span class="countdown-label">Segundos</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="video-container">
+                        <div class="video-placeholder">
+                            <div class="video-icon">
+                                <i class="fas fa-play-circle"></i>
+                            </div>
+                            <h3>Video de Introducción</h3>
+                            <p>Mira este video para entender la importancia de la automatización con IA en el mundo actual</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Detalles de la Sesión en Zoom</h3>
+                    <div class="zoom-details">
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fas fa-calendar-alt"></i></div>
+                            <div>
+                                <strong>Fecha y hora principal:</strong><br>
+                                <span id="main-time">Calculando...</span>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fas fa-video"></i></div>
+                            <div>
+                                <strong>Enlace de Zoom:</strong><br>
+                                <a href="https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1&omn=88364061904" target="_blank">https://us06web.zoom.us/j/2216623617</a>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fas fa-id-card"></i></div>
+                            <div>
+                                <strong>ID de la reunión:</strong> 221 662 3617
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon"><i class="fas fa-key"></i></div>
+                            <div>
+                                <strong>Código de acceso:</strong> 33377
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1&omn=88364061904" target="_blank" class="btn">
+                        <i class="fas fa-door-open"></i> ÚNETE A LA SESIÓN AHORA
+                    </a>
+                </div>
+                
+                <div class="instructions">
+                    <h3><i class="fas fa-exclamation-circle"></i> INSTRUCCIONES IMPORTANTES (LEER CON CUIDADO)</h3>
+                    <ul class="instructions-list">
+                        <li>La sesión comenzará puntualmente según el horario mostrado. <span class="warning">Te recomendamos conectarte 5 minutos antes.</span></li>
+                        <li>Guarda esta página para acceder rápidamente a la sesión cuando comience.</li>
+                        <li>Ten preparado lápiz y papel para tomar notas durante la presentación.</li>
+                        <li>Asegúrate de tener una conexión estable a internet para no perderte detalles importantes.</li>
+                        <li>Durante la sesión, habrá un espacio para preguntas al final. Prepara tus dudas sobre automatización con IA.</li>
+                        <li>Si es tu primera vez usando Zoom, <span class="warning">descarga la aplicación con anticipación</span> desde zoom.us/download</li>
+                        <li>Esta sesión se llevará a cabo de lunes a viernes a la misma hora. Si no puedes hoy, regresa mañana.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="side-content">
+                <div class="card">
+                    <h2><i class="fas fa-globe-americas"></i> Horarios por Región</h2>
+                    <p>La sesión se realiza de lunes a viernes a la misma hora. Aquí puedes ver el horario en tu región:</p>
+                    
+                    <div class="time-zones" id="time-zones-container">
+                        <!-- Las zonas horarias se generarán con JavaScript -->
+                    </div>
+                    
+                    <p style="margin-top: 20px; font-style: italic; color: #666;">*Los horarios se actualizan automáticamente según tu zona horaria local.</p>
+                </div>
+                
+                <div class="card">
+                    <h2><i class="fas fa-bullhorn"></i> ¿Qué Aprenderás?</h2>
+                    <ul style="padding-left: 20px; margin-top: 15px;">
+                        <li>Las herramientas de IA más efectivas para automatizar servicios</li>
+                        <li>Cómo implementar automatizaciones sin conocimientos técnicos avanzados</li>
+                        <li>Casos de éxito reales de negocios que ya están usando estas estrategias</li>
+                        <li>El futuro de la automatización y cómo prepararte para los próximos cambios</li>
+                        <li>Recursos gratuitos para comenzar tu proceso de automatización hoy mismo</li>
+                    </ul>
+                    
+                    <div class="video-container" style="margin-top: 25px;">
+                        <div class="video-placeholder">
+                            <div class="video-icon">
+                                <i class="fas fa-list-alt"></i>
+                            </div>
+                            <h3>Video de Indicaciones Finales</h3>
+                            <p>Al final de la sesión, mira este video con los pasos a seguir y recursos adicionales</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2><i class="fas fa-calendar-check"></i> Sesiones Programadas</h2>
+                    <p>Esta sesión se realiza <strong>de lunes a viernes</strong> a la misma hora. No necesitas registrarte nuevamente para futuras sesiones.</p>
+                    <p>Simplemente guarda esta página y regresa cuando desees participar nuevamente.</p>
+                    
+                    <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                        <h3 style="margin-top: 0; color: #1e3799;"><i class="fas fa-sync-alt"></i> Automatización de Horarios</h3>
+                        <p>Los horarios mostrados se actualizan automáticamente para reflejar la próxima sesión disponible de lunes a viernes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 Equipo de Automatización con IA. Todos los derechos reservados.</p>
+            <p>Esta sesión es educativa y no requiere inversión inicial.</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Configuración inicial - sesión a las 5:00 PM hora del Pacífico (US and Canada)
+        const sessionHour = 17; // 5:00 PM
+        const sessionMinute = 0;
+        
+        // Zonas horarias a mostrar (relativas a la hora del Pacífico)
+        const timeZones = [
+            { name: "Pacífico (US & Canada)", offset: 0 },
+            { name: "Texas (Central Time)", offset: 2 },
+            { name: "Nueva York (Eastern Time)", offset: 3 },
+            { name: "México (Centro)", offset: 2 },
+            { name: "Honduras", offset: 2 },
+            { name: "Colombia", offset: 3 },
+            { name: "Venezuela", offset: 4 },
+            { name: "Perú", offset: 3 },
+            { name: "España (Peninsular)", offset: 9 }
+        ];
+        
+        // Función para formatear la hora
+        function formatTime(date) {
+            let hours = date.getHours();
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            
+            hours = hours % 12;
+            hours = hours ? hours : 12; // La hora '0' debe ser '12'
+            
+            return `${hours}:${minutes} ${ampm}`;
+        }
+        
+        // Función para formatear la fecha
+        function formatDate(date) {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('es-ES', options);
+        }
+        
+        // Función para obtener la próxima sesión (de lunes a viernes)
+        function getNextSessionDate() {
+            const now = new Date();
+            const today = new Date(now.getTime());
+            
+            // Crear fecha objetivo para hoy a las 5:00 PM hora del Pacífico
+            const targetDate = new Date(today);
+            targetDate.setHours(sessionHour, sessionMinute, 0, 0);
+            
+            // Convertir a hora del Pacífico (asumiendo que el servidor está en UTC)
+            // En un caso real, usaríamos una librería como moment-timezone
+            const pacificOffset = -7 * 60; // PDT offset en minutos (UTC-7)
+            const localOffset = today.getTimezoneOffset();
+            const offsetDifference = pacificOffset - localOffset;
+            
+            // Ajustar la fecha objetivo según la diferencia horaria
+            targetDate.setMinutes(targetDate.getMinutes() + offsetDifference);
+            
+            // Si ya pasó la sesión de hoy, buscar la próxima de lunes a viernes
+            if (targetDate < now) {
+                targetDate.setDate(targetDate.getDate() + 1);
+                
+                // Saltar fines de semana
+                while (targetDate.getDay() === 0 || targetDate.getDay() === 6) {
+                    targetDate.setDate(targetDate.getDate() + 1);
+                }
+            }
+            
+            // Si hoy es fin de semana, buscar el próximo lunes
+            const dayOfWeek = targetDate.getDay();
+            if (dayOfWeek === 0) { // Domingo
+                targetDate.setDate(targetDate.getDate() + 1);
+            } else if (dayOfWeek === 6) { // Sábado
+                targetDate.setDate(targetDate.getDate() + 2);
+            }
+            
+            return targetDate;
+        }
+        
+        // Función para actualizar el contador
+        function updateCountdown() {
+            const nextSession = getNextSessionDate();
+            const now = new Date();
+            const timeDiff = nextSession - now;
+            
+            if (timeDiff <= 0) {
+                // Si ya pasó la sesión, recalcular para la siguiente
+                nextSession = getNextSessionDate();
+                return;
+            }
+            
+            // Calcular días, horas, minutos y segundos
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            
+            // Actualizar el contador en la página
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Actualizar la fecha y hora principal
+            document.getElementById('main-time').textContent = `${formatDate(nextSession)} a las ${formatTime(nextSession)}`;
+            
+            // Actualizar las zonas horarias
+            updateTimeZones(nextSession);
+        }
+        
+        // Función para actualizar las zonas horarias
+        function updateTimeZones(sessionDate) {
+            const container = document.getElementById('time-zones-container');
+            container.innerHTML = '';
+            
+            timeZones.forEach(zone => {
+                // Crear una nueva fecha ajustada según el offset
+                const zoneDate = new Date(sessionDate.getTime());
+                zoneDate.setHours(zoneDate.getHours() + zone.offset);
+                
+                const zoneElement = document.createElement('div');
+                zoneElement.className = 'time-zone';
+                zoneElement.innerHTML = `
+                    <div class="time-zone-name">${zone.name}</div>
+                    <div class="time-zone-time">${formatTime(zoneDate)}</div>
+                    <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">${formatDate(zoneDate)}</div>
+                `;
+                
+                container.appendChild(zoneElement);
+            });
+        }
+        
+        // Inicializar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar el contador para actualizarse cada segundo
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            
+            // Añadir efecto de escritura al subtítulo
+            const subtitle = document.querySelector('.subtitle');
+            const originalText = subtitle.textContent;
+            subtitle.textContent = '';
+            let i = 0;
+            
+            function typeWriter() {
+                if (i < originalText.length) {
+                    subtitle.textContent += originalText.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 30);
+                }
+            }
+            
+            // Iniciar efecto después de un breve retraso
+            setTimeout(typeWriter, 1000);
+        });
+    </script>
+</body>
+</html>
