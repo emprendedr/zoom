@@ -1,941 +1,952 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 AUTOMATIZACIÓN CON IA | ÚLTIMOS MINUTOS PARA UNIRTE</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #7B1FA2;
-            --secondary: #E91E63;
-            --accent: #FF9800;
-            --dark: #0c2461;
-            --light: #f8f9fa;
-            --success: #00C853;
-            --warning: #FF5722;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0c2461 0%, #1e3799 50%, #4a69bd 100%);
-            color: #333;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Header con más impacto */
-        header {
-            text-align: center;
-            padding: 40px 0 30px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
-            z-index: 0;
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .logo-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 8px 20px rgba(233, 30, 99, 0.6); }
-            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4); }
-        }
-        
-        h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
-            background: linear-gradient(90deg, #FFD700, #FF9800, #FF5722);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1.2;
-            letter-spacing: -0.5px;
-        }
-        
-        .hook-text {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: white;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 600;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-        
-        .highlight {
-            color: #FFD700;
-            font-weight: 800;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        /* Contador urgente */
-        .urgent-countdown {
-            background: linear-gradient(135deg, rgba(255, 87, 34, 0.95), rgba(255, 152, 0, 0.95));
-            padding: 30px;
-            border-radius: 20px;
-            color: white;
-            margin: 30px auto;
-            max-width: 800px;
-            box-shadow: 0 15px 35px rgba(255, 87, 34, 0.4);
-            border: 3px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .urgent-countdown::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path fill="white" d="M50,10 L60,40 L90,40 L65,60 L75,90 L50,70 L25,90 L35,60 L10,40 L40,40 Z"/></svg>');
-            background-size: 100px;
-            opacity: 0.3;
-        }
-        
-        .countdown-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            color: white;
-            font-weight: 800;
-        }
-        
-        #live-countdown {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .countdown-unit {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 15px;
-            padding: 25px 20px;
-            min-width: 130px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: transform 0.3s;
-        }
-        
-        .countdown-unit:hover {
-            transform: translateY(-5px);
-        }
-        
-        .countdown-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            display: block;
-            color: #FFD700;
-            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-            line-height: 1;
-        }
-        
-        .countdown-label {
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            margin-top: 10px;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-        
-        .session-time {
-            margin-top: 20px;
-            font-size: 1.3rem;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px;
-            border-radius: 10px;
-            display: inline-block;
-        }
-        
-        /* Contenido principal */
-        .content-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .main-content {
-            flex: 3;
-            min-width: 300px;
-        }
-        
-        .side-content {
-            flex: 2;
-            min-width: 300px;
-        }
-        
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            padding: 35px;
-            margin-bottom: 30px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        }
-        
-        h2 {
-            font-family: 'Poppins', sans-serif;
-            color: var(--dark);
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 4px solid var(--accent);
-            font-weight: 800;
-            font-size: 2.2rem;
-        }
-        
-        /* Videos mejorados */
-        .video-container {
-            margin: 35px 0;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            position: relative;
-            background: #000;
-        }
-        
-        .video-player {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%;
-            background-color: #000;
-            cursor: pointer;
-        }
-        
-        .video-thumbnail {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .video-player:hover .video-thumbnail {
-            transform: scale(1.05);
-        }
-        
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(123, 31, 162, 0.7), rgba(233, 30, 99, 0.7));
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
-        
-        .play-icon {
-            font-size: 6rem;
-            color: white;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5));
-            transition: transform 0.3s;
-        }
-        
-        .video-player:hover .play-icon {
-            transform: scale(1.2);
-        }
-        
-        .video-title {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            font-family: 'Poppins', sans-serif;
-            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
-        }
-        
-        /* Botón principal */
-        .cta-button {
-            display: block;
-            background: linear-gradient(90deg, var(--success), #64DD17);
-            color: white;
-            padding: 25px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.8rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            box-shadow: 0 15px 35px rgba(0, 200, 83, 0.5);
-            margin: 30px 0;
-            border: none;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-            animation: ctaPulse 2s infinite;
-        }
-        
-        @keyframes ctaPulse {
-            0% { transform: scale(1); box-shadow: 0 15px 35px rgba(0, 200, 83, 0.5); }
-            50% { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0, 200, 83, 0.7); }
-            100% { transform: scale(1); box-shadow: 0 15px 35px rgba(0, 200, 83, 0.5); }
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0, 200, 83, 0.8);
-            background: linear-gradient(90deg, #64DD17, var(--success));
-        }
-        
-        /* Botones de compartir */
-        .share-section {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-        
-        .share-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 18px 35px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            min-width: 250px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        .whatsapp-btn {
-            background: linear-gradient(90deg, #25D366, #128C7E);
-            color: white;
-        }
-        
-        .whatsapp-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
-        }
-        
-        .sms-btn {
-            background: linear-gradient(90deg, #34B7F1, #0A8DFF);
-            color: white;
-        }
-        
-        .sms-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(52, 183, 241, 0.5);
-        }
-        
-        /* Modal de zonas horarias corregido */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 900px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-            animation: slideUp 0.4s ease;
-        }
-        
-        .timezone-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-        
-        .timezone-card {
-            background: linear-gradient(135deg, #f1f8ff, #e3f2fd);
-            padding: 20px;
-            border-radius: 15px;
-            border: 2px solid #bbdefb;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .timezone-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            border-color: var(--accent);
-        }
-        
-        .timezone-name {
-            font-weight: 800;
-            color: var(--dark);
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .timezone-time {
-            font-size: 1.8rem;
-            color: var(--primary);
-            font-weight: 900;
-            margin: 15px 0;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hook-text {
-                font-size: 1.5rem;
-            }
-            
-            .countdown-unit {
-                min-width: 110px;
-            }
-            
-            .countdown-number {
-                font-size: 3rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .content-wrapper {
-                flex-direction: column;
-            }
-            
-            h1 {
-                font-size: 2.3rem;
-            }
-            
-            .hook-text {
-                font-size: 1.3rem;
-            }
-            
-            .countdown-unit {
-                min-width: 90px;
-                padding: 20px 15px;
-            }
-            
-            .countdown-number {
-                font-size: 2.5rem;
-            }
-            
-            .cta-button {
-                padding: 20px 35px;
-                font-size: 1.5rem;
-            }
-            
-            .share-section {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .share-btn {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .countdown-unit {
-                min-width: 70px;
-                padding: 15px 10px;
-            }
-            
-            .countdown-number {
-                font-size: 2.2rem;
-            }
-            
-            .cta-button {
-                font-size: 1.3rem;
-                padding: 18px 25px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Taller gratuito de Inteligencia Artificial y Automatización. Aprende a usar IA, redes sociales y automatiza ingresos con tu proyecto o marca personal.">
+  <meta name="keywords" content="IA, Inteligencia Artificial, Automatización, Taller Gratuito, Redes Sociales, Marketing Digital">
+  <meta name="author" content="Edwar Hernandez">
+  
+  <!-- Open Graph para compartir en redes sociales -->
+  <meta property="og:title" content="Taller Gratuito IA & Automatización">
+  <meta property="og:description" content="Aprende a usar Inteligencia Artificial, Redes Sociales y automatiza ingresos con tu proyecto o marca personal">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://img.youtube.com/vi/9i8HzENK6Js/maxresdefault.jpg">
+  <meta property="og:url" content="https://zoom-lilac-iota.vercel.app">
+  
+  <title>Taller Gratuito IA & Automatización | Aprende y Automatiza</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/artificial-intelligence.png">
+  
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-color: #00e0ff;
+      --secondary-color: #ffd700;
+      --dark-bg: #0f2027;
+      --medium-bg: #203a43;
+      --light-bg: #2c5364;
+      --text-color: #ffffff;
+      --form-bg: rgba(255, 255, 255, 0.1);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, var(--dark-bg), var(--medium-bg), var(--light-bg));
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      color: var(--secondary-color);
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .highlight {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .cta-badge {
+      display: inline-block;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-weight: 600;
+      margin: 15px 0;
+      box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .video-section {
+      margin: 40px auto;
+      max-width: 900px;
+      position: relative;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* Relación 16:9 */
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background-color: #000;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .video-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-thumbnail {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://img.youtube.com/vi/9i8HzENK6Js/maxresdefault.jpg');
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .video-thumbnail::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      transition: background 0.3s ease;
+    }
+
+    .video-thumbnail:hover::before {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .video-thumbnail:hover .play-button {
+      transform: scale(1.1);
+      background: rgba(255, 215, 0, 0.9);
+    }
+
+    .play-button {
+      width: 80px;
+      height: 80px;
+      background: rgba(0, 224, 255, 0.8);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: white;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+      animation: pulse-play 2s infinite;
+    }
+
+    @keyframes pulse-play {
+      0% { box-shadow: 0 0 0 0 rgba(0, 224, 255, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(0, 224, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 224, 255, 0); }
+    }
+
+    .video-thumbnail .play-text {
+      position: absolute;
+      bottom: 30px;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 600;
+      z-index: 2;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 8px 15px;
+      border-radius: 20px;
+    }
+
+    #videoFrame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none;
+    }
+
+    .video-message {
+      text-align: center;
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(0, 224, 255, 0.1);
+      border-radius: 10px;
+      border-left: 4px solid var(--primary-color);
+      font-size: 0.95rem;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .info-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 900px;
+      box-shadow: var(--shadow);
+      border-left: 5px solid var(--primary-color);
+      animation: slideUp 1s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .info-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-icon {
+      color: var(--secondary-color);
+      font-size: 1.8rem;
+      margin-top: 5px;
+    }
+
+    .form-section {
+      background: var(--form-bg);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 600px;
+      margin: 50px auto;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      animation: slideUp 1.2s ease;
+    }
+
+    .form-section h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      color: var(--secondary-color);
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .form-section h3:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+
+    /* Estilos para el nuevo botón de registro */
+    .info-card {
+      background: rgba(0, 224, 255, 0.1);
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 25px;
+      text-align: center;
+      border-left: 4px solid var(--primary-color);
+      animation: fadeIn 1.5s ease;
+    }
+
+    .cta-button-container {
+      text-align: center;
+      margin: 30px 0;
+      animation: fadeIn 1.8s ease;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(45deg, #00e0ff, #00b4d8);
+      color: #000;
+      padding: 20px 40px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 20px rgba(0, 224, 255, 0.4);
+      border: 2px solid transparent;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button:hover {
+      background: linear-gradient(45deg, #ffd700, #ffc300);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(255, 215, 0, 0.5);
+      border-color: #fff;
+    }
+
+    .cta-button:active {
+      transform: translateY(-2px);
+    }
+
+    .button-subtext {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .guarantee {
+      background: rgba(255, 215, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+      animation: fadeIn 2s ease;
+    }
+
+    .guarantee p {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .share-section {
+      text-align: center;
+      margin: 40px auto;
+      max-width: 600px;
+      padding: 20px;
+      background: rgba(0, 224, 255, 0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(0, 224, 255, 0.2);
+    }
+
+    .share-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .share-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 25px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .share-button:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+
+    .share-button.facebook:hover {
+      background: #1877f2;
+    }
+
+    .share-button.whatsapp:hover {
+      background: #25d366;
+    }
+
+    .share-button.telegram:hover {
+      background: #0088cc;
+    }
+
+    .share-button.copy:hover {
+      background: var(--primary-color);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      animation: fadeIn 2.2s ease;
+    }
+
+    .host-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .host-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: float 3s ease-in-out infinite 1s;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px 20px;
+      border-radius: 50px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-3px);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-icon {
+      color: var(--primary-color);
+    }
+
+    .copyright {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+      
+      .form-section {
+        padding: 25px;
+      }
+      
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .cta-button {
+        padding: 18px 30px;
+        font-size: 1.2rem;
+      }
+      
+      .play-button {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+      }
+      
+      .video-thumbnail .play-text {
+        font-size: 1rem;
+        bottom: 20px;
+      }
+      
+      .share-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .share-button {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      .container {
+        padding: 10px;
+      }
+      
+      .form-section {
+        padding: 20px;
+      }
+      
+      .cta-button {
+        padding: 16px 24px;
+        font-size: 1.1rem;
+        width: 100%;
+      }
+      
+      .play-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <div class="logo-badge">
-                    <i class="fas fa-bolt"></i> SESIÓN URGENTE - HOY 5:00 PM PST
-                </div>
-                <h1>🔥 ¡AUTOMATIZA TU NEGOCIO CON IA EN 30 MINUTOS!</h1>
-                <p class="hook-text">
-                    <span class="highlight">ÚLTIMAS HORAS</span> para descubrir el sistema que está revolucionando negocios en todo el mundo. 
-                    <span class="highlight">Gana 3 horas diarias</span> implementando estas estrategias hoy mismo.
-                </p>
-            </div>
-        </header>
-        
-        <!-- CONTADOR URGENTE CORREGIDO -->
-        <div class="urgent-countdown">
-            <div class="countdown-title">
-                <i class="fas fa-hourglass-end"></i> ¡LA SESIÓN COMIENZA EN!
-            </div>
-            <div id="live-countdown">
-                <div class="countdown-unit">
-                    <span class="countdown-number" id="countdown-hours">00</span>
-                    <span class="countdown-label">Horas</span>
-                </div>
-                <div class="countdown-unit">
-                    <span class="countdown-number" id="countdown-minutes">00</span>
-                    <span class="countdown-label">Minutos</span>
-                </div>
-                <div class="countdown-unit">
-                    <span class="countdown-number" id="countdown-seconds">00</span>
-                    <span class="countdown-label">Segundos</span>
-                </div>
-            </div>
-            <div class="session-time">
-                <i class="fas fa-clock"></i> Hoy, Lunes 12 de Enero - 5:00 PM (Hora de Los Ángeles)
-            </div>
-        </div>
-        
-        <div class="content-wrapper">
-            <div class="main-content">
-                <div class="card">
-                    <h2><i class="fas fa-play-circle"></i> MIRA ESTO ANTES DE ENTRAR</h2>
-                    <div class="video-container">
-                        <div class="video-player" id="intro-video" data-video-id="cv4RUNoRpZU">
-                            <img src="https://img.youtube.com/vi/cv4RUNoRpZU/maxresdefault.jpg" class="video-thumbnail">
-                            <div class="video-overlay">
-                                <div class="play-icon">
-                                    <i class="fas fa-play-circle"></i>
-                                </div>
-                                <div class="video-title">
-                                    El Secreto que No Te Han Contado
-                                </div>
-                                <p style="font-size: 1.2rem; max-width: 600px;">
-                                    Descubre por qué el 92% de los negocios que implementan IA duplican sus ingresos en 6 meses
-                                </p>
-                            </div>
-                            <div class="video-iframe-container" id="intro-iframe"></div>
-                        </div>
-                    </div>
-                    
-                    <h2><i class="fas fa-video"></i> DETALLES DE LA SESIÓN ZOOM</h2>
-                    <div style="background: linear-gradient(135deg, #f8f9fa, #e3f2fd); padding: 25px; border-radius: 15px; margin: 25px 0;">
-                        <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                            <div style="background: var(--accent); color: white; padding: 12px 20px; border-radius: 10px; font-weight: 800; font-size: 1.3rem;">
-                                <i class="fas fa-calendar-day"></i> HOY MISMO - 5:00 PM PST
-                            </div>
-                        </div>
-                        
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 25px 0;">
-                            <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                                <div style="color: var(--primary); margin-bottom: 10px;">
-                                    <i class="fas fa-link"></i> <strong>Enlace Directo:</strong>
-                                </div>
-                                <a href="https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1" target="_blank" style="color: var(--secondary); font-weight: 600;">
-                                    https://zoom.us/j/2216623617
-                                </a>
-                            </div>
-                            
-                            <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                                <div style="color: var(--primary); margin-bottom: 10px;">
-                                    <i class="fas fa-id-card"></i> <strong>ID Reunión:</strong>
-                                </div>
-                                <div style="font-size: 1.5rem; font-weight: 800; color: var(--dark);">
-                                    221 662 3617
-                                </div>
-                            </div>
-                            
-                            <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                                <div style="color: var(--primary); margin-bottom: 10px;">
-                                    <i class="fas fa-key"></i> <strong>Código Acceso:</strong>
-                                </div>
-                                <div style="font-size: 1.5rem; font-weight: 800; color: var(--dark);">
-                                    33377
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <button class="cta-button" id="join-now-btn">
-                            <i class="fas fa-door-open"></i> ¡ÚNETE A LA SESIÓN AHORA!
-                        </button>
-                        <a href="https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1" target="_blank" id="zoom-direct-link" style="display: none;"></a>
-                    </div>
-                    
-                    <h2><i class="fas fa-exclamation-triangle"></i> ATENCIÓN: ESTO ES IMPORTANTE</h2>
-                    <div style="background: #FFF3E0; padding: 25px; border-radius: 15px; margin-top: 25px; border-left: 5px solid var(--warning);">
-                        <ul style="list-style: none; padding: 0;">
-                            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-clock" style="color: var(--warning); position: absolute; left: 0;"></i>
-                                <strong>La sesión comienza PUNTUAL a las 5:00 PM PST</strong>. Conéctate 10 minutos antes.
-                            </li>
-                            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-wifi" style="color: var(--warning); position: absolute; left: 0;"></i>
-                                Verifica tu conexión a internet antes de unirte.
-                            </li>
-                            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-download" style="color: var(--warning); position: absolute; left: 0;"></i>
-                                Si es tu primera vez en Zoom, descarga la app desde zoom.us/download
-                            </li>
-                            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-shield-alt" style="color: var(--warning); position: absolute; left: 0;"></i>
-                                <strong>NO compartas</strong> el enlace o código con personas no invitadas.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="side-content">
-                <div class="card">
-                    <h2><i class="fas fa-bullseye"></i> ¿QUÉ LOGRARÁS HOY?</h2>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 20px; padding: 15px; background: #F3E5F5; border-radius: 10px;">
-                            <div style="color: var(--primary); font-weight: 800; margin-bottom: 5px;">
-                                <i class="fas fa-check-circle"></i> Sistema de Automatización Completo
-                            </div>
-                            Aprende a implementar herramientas de IA en menos de 1 hora.
-                        </li>
-                        <li style="margin-bottom: 20px; padding: 15px; background: #E8F5E9; border-radius: 10px;">
-                            <div style="color: var(--success); font-weight: 800; margin-bottom: 5px;">
-                                <i class="fas fa-check-circle"></i> Plantillas Listas para Usar
-                            </div>
-                            Recibe plantillas descargables para empezar inmediatamente.
-                        </li>
-                        <li style="margin-bottom: 20px; padding: 15px; background: #E3F2FD; border-radius: 10px;">
-                            <div style="color: var(--secondary); font-weight: 800; margin-bottom: 5px;">
-                                <i class="fas fa-check-circle"></i> Soporte Directo con Expertos
-                            </div>
-                            Resuelve tus dudas en tiempo real durante la sesión.
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h2><i class="fas fa-globe-americas"></i> ¿A QUÉ HORA EN MI PAÍS?</h2>
-                    <button class="timezone-btn" id="show-timezones" style="width: 100%; padding: 18px; background: linear-gradient(90deg, var(--primary), var(--secondary)); color: white; border: none; border-radius: 15px; font-weight: 700; font-size: 1.2rem; cursor: pointer; margin-top: 15px;">
-                        <i class="fas fa-map-marker-alt"></i> VER HORARIOS POR PAÍS
-                    </button>
-                    <p style="margin-top: 15px; font-size: 0.9rem; color: #666; text-align: center;">
-                        Clic aquí para ver la hora exacta en tu país (cálculo preciso)
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Botones para compartir -->
-        <div class="share-section">
-            <button class="share-btn whatsapp-btn" id="whatsapp-share">
-                <i class="fab fa-whatsapp"></i> Compartir por WhatsApp
-            </button>
-            <button class="share-btn sms-btn" id="sms-share">
-                <i class="fas fa-sms"></i> Compartir por SMS
-            </button>
-        </div>
-        
-        <!-- Modal de zonas horarias CORREGIDO -->
-        <div id="timezoneModal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal" style="position: absolute; top: 20px; right: 25px; font-size: 32px; cursor: pointer; color: var(--dark);">&times;</span>
-                <h2 style="color: var(--dark); margin-bottom: 20px;">
-                    <i class="fas fa-globe-americas"></i> HORA DE LA SESIÓN POR PAÍS
-                </h2>
-                <p style="margin-bottom: 25px; font-size: 1.1rem;">
-                    La sesión comienza <strong>HOY, Lunes 12 de Enero a las 5:00 PM (hora de Los Ángeles)</strong>. 
-                    Estos son los horarios convertidos con precisión:
-                </p>
-                
-                <div class="timezone-grid" id="timezone-container">
-                    <!-- Las zonas horarias se generarán con JavaScript preciso -->
-                </div>
-                
-                <div style="margin-top: 30px; padding: 20px; background: #F3E5F5; border-radius: 15px;">
-                    <p style="margin: 0; color: var(--primary); font-weight: 600;">
-                        <i class="fas fa-info-circle"></i> Todos los cálculos consideran diferencias horarias exactas y horario de verano donde aplica.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <i class="fas fa-robot"></i>
+      </div>
+      <h1>🚀 Taller GRATUITO de IA & Automatización</h1>
+      <h2>Aprende a usar <span class="highlight">Inteligencia Artificial, Redes Sociales</span>  
+        y automatiza ingresos con tu proyecto o marca personal</h2>
+      
+      <div class="cta-badge">
+        <i class="fas fa-gift"></i> Valor real: +$800 — HOY GRATIS
+      </div>
+    </header>
 
-    <script>
-        // CONFIGURACIÓN EXACTA: HOY, Lunes 12 de Enero, 5:00 PM PST
-        const targetDate = new Date('2026-01-12T17:00:00-08:00'); // 5:00 PM PST (UTC-8)
+    <!-- Sección de Video -->
+    <section class="video-section">
+      <div class="video-container">
+        <div class="video-thumbnail" id="videoThumbnail">
+          <div class="play-button">
+            <i class="fas fa-play"></i>
+          </div>
+          <div class="play-text">Haz clic para ver el video</div>
+        </div>
         
-        // Zonas horarias con cálculos PRECISOS
-        const timezoneData = [
-            { name: "Los Ángeles, USA", offset: 0, city: "PST", emoji: "🌅" },
-            { name: "Texas, USA", offset: 2, city: "CST", emoji: "🤠" },
-            { name: "Nueva York, USA", offset: 3, city: "EST", emoji: "🗽" },
-            { name: "Ciudad de México", offset: 2, city: "CST", emoji: "🇲🇽" },
-            { name: "Tegucigalpa, Honduras", offset: 2, city: "CST", emoji: "🇭🇳" },
-            { name: "Bogotá, Colombia", offset: 3, city: "COT", emoji: "🇨🇴" },
-            { name: "Caracas, Venezuela", offset: 4, city: "VET", emoji: "🇻🇪" },
-            { name: "Lima, Perú", offset: 3, city: "PET", emoji: "🇵🇪" },
-            { name: "Madrid, España", offset: 9, city: "CET", emoji: "🇪🇸" }
-        ];
-        
-        // Función para formatear hora EXACTA
-        function formatExactTime(date) {
-            const options = { 
-                hour: 'numeric', 
-                minute: '2-digit', 
-                hour12: true,
-                timeZoneName: 'short'
-            };
-            return date.toLocaleTimeString('es-ES', options);
-        }
-        
-        // Función para formatear fecha
-        function formatExactDate(date) {
-            const options = { 
-                weekday: 'long', 
-                day: 'numeric', 
-                month: 'long',
-                hour: 'numeric',
-                minute: '2-digit'
-            };
-            return date.toLocaleDateString('es-ES', options);
-        }
-        
-        // CONTADOR EN TIEMPO REAL CORREGIDO
-        function updateCountdown() {
-            const now = new Date();
-            const timeDiff = targetDate - now;
-            
-            if (timeDiff <= 0) {
-                // La sesión YA comenzó
-                document.getElementById('live-countdown').innerHTML = `
-                    <div style="text-align: center; padding: 20px;">
-                        <div style="font-size: 3rem; color: #FFD700; margin-bottom: 15px;">
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                        <div style="font-size: 2rem; font-weight: 800; color: white;">
-                            ¡LA SESIÓN YA COMENZÓ!
-                        </div>
-                        <div style="font-size: 1.2rem; margin-top: 10px;">
-                            Únete ahora mismo para no perderte nada
-                        </div>
-                    </div>
-                `;
-                
-                document.getElementById('join-now-btn').innerHTML = '<i class="fas fa-running"></i> ¡ENTRAR A ZOOM AHORA!';
-                document.getElementById('join-now-btn').style.background = 'linear-gradient(90deg, #FF5722, #FF9800)';
-                
-                return;
-            }
-            
-            // Calcular tiempo restante
-            const totalSeconds = Math.floor(timeDiff / 1000);
-            const hours = Math.floor(totalSeconds / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-            
-            // Actualizar display
-            document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
-            
-            // Cambiar botón cuando falten 10 minutos
-            const joinBtn = document.getElementById('join-now-btn');
-            if (totalSeconds <= 600) { // 10 minutos = 600 segundos
-                joinBtn.innerHTML = '<i class="fas fa-door-open"></i> ¡ENTRAR A ZOOM AHORA!';
-                joinBtn.style.animation = 'pulse 1s infinite';
-            }
-        }
-        
-        // FUNCIÓN PARA CALCULAR ZONAS HORARIAS PRECISAS
-        function calculateExactTimezones() {
-            const container = document.getElementById('timezone-container');
-            container.innerHTML = '';
-            
-            timezoneData.forEach(zone => {
-                // Crear fecha con offset exacto
-                const zoneTime = new Date(targetDate.getTime());
-                zoneTime.setHours(zoneTime.getHours() + zone.offset);
-                
-                const card = document.createElement('div');
-                card.className = 'timezone-card';
-                card.innerHTML = `
-                    <div style="font-size: 2rem; margin-bottom: 10px;">
-                        ${zone.emoji}
-                    </div>
-                    <div class="timezone-name">
-                        ${zone.name}
-                    </div>
-                    <div style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">
-                        ${zone.city}
-                    </div>
-                    <div class="timezone-time">
-                        ${formatExactTime(zoneTime)}
-                    </div>
-                    <div style="color: #666; font-size: 0.9rem; margin-top: 10px;">
-                        ${formatExactDate(zoneTime)}
-                    </div>
-                `;
-                
-                container.appendChild(card);
-            });
-        }
-        
-        // COMPARTIR POR WHATSAPP
-        function shareWhatsApp() {
-            const message = `🔥 ¡ÚNETE A LA SESIÓN DE AUTOMATIZACIÓN CON IA! 
-        
-Hoy, Lunes 12 de Enero - 5:00 PM PST
-Aprende a automatizar tu negocio y ganar 3 horas diarias.
+        <!-- Iframe del video con protección -->
+        <iframe 
+          id="videoFrame"
+          src=""
+          title="Taller de IA y Automatización"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen
+          frameborder="0"
+          modestbranding="1"
+          rel="0">
+        </iframe>
+      </div>
+      
+      <div class="video-message" id="videoMessage">
+        <i class="fas fa-info-circle"></i> Después de ver el video completo, serás redirigido automáticamente al formulario de registro.
+      </div>
+    </section>
 
-Enlace Zoom: https://us06web.zoom.us/j/2216623617
-ID: 221 662 3617 | Código: 33377
+    <!-- Sección de Información -->
+    <section class="info-section">
+      <p>💡 <strong>Taller 100% práctico</strong> donde aprenderás a implementar soluciones de IA y automatización en tu negocio o proyecto personal.</p>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div>
+            <h4>Herramientas de IA</h4>
+            <p>Descubre las mejores herramientas de IA para crear contenido, automatizar tareas y optimizar procesos.</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div>
+            <h4>Automatización de Ingresos</h4>
+            <p>Aprende a crear sistemas que generen ingresos automáticos con IA y marketing digital.</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div>
+            <h4>Redes Sociales Automatizadas</h4>
+            <p>Configura sistemas para gestionar y hacer crecer tus redes sociales con mínima intervención.</p>
+          </div>
+        </div>
+        
+        <div class="info-item">
+          <div class="info-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div>
+            <h4>Horario Flexible</h4>
+            <p>Talleres en vivo periódicamente. Regístrate para recibir las próximas fechas disponibles.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 25px; padding: 15px; background: rgba(255, 215, 0, 0.1); border-radius: 10px;">
+        <p style="color: var(--secondary-color); font-weight: 600;">
+          <i class="fas fa-exclamation-triangle"></i> ¡ATENCIÓN! Registro obligatorio. La clave de acceso se envía únicamente al completar el formulario.
+        </p>
+      </div>
+    </section>
 
-¡No te lo pierdas! 🚀`;
-            
-            const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-        }
+    <!-- Sección de Formulario -->
+    <section class="form-section" id="registrationSection">
+      <h3>👇 Regístrate Ahora - Cupos Limitados</h3>
+      
+      <div class="info-card">
+        <p><i class="fas fa-shield-alt"></i> <strong>Registro Seguro</strong><br>
+        Tu información está protegida por Google Forms.</p>
+      </div>
+      
+      <div class="cta-button-container">
+        <a href="https://forms.gle/f6eCHoKeBDrhUGU4A" 
+           target="_blank" 
+           class="cta-button"
+           id="registrationButton">
+            <i class="fas fa-user-plus"></i> REGÍSTRATE AQUÍ GRATIS
+        </a>
+        <p class="button-subtext">
+          <i class="fas fa-external-link-alt"></i> Serás redirigido al formulario oficial de registro
+        </p>
+      </div>
+      
+      <div class="guarantee">
+        <p><i class="fas fa-clock"></i> <strong>Solo toma 1 minuto</strong></p>
+        <p><i class="fas fa-ticket-alt"></i> Cupos limitados - Reserva tu lugar ahora</p>
+      </div>
+    </section>
+
+    <!-- Sección de Compartir -->
+    <section class="share-section">
+      <h3><i class="fas fa-share-alt"></i> Comparte esta Oportunidad</h3>
+      <p>Ayuda a otros a descubrir este taller gratuito compartiendo el enlace:</p>
+      
+      <div class="cta-button-container">
+        <a href="https://zoom-lilac-iota.vercel.app" 
+           target="_blank" 
+           class="cta-button"
+           id="shareLinkButton">
+            <i class="fas fa-link"></i> https://zoom-lilac-iota.vercel.app
+        </a>
+        <p class="button-subtext">
+          <i class="fas fa-mouse-pointer"></i> Haz clic para visitar la página o comparte el enlace
+        </p>
+      </div>
+      
+      <div class="share-buttons">
+        <a href="#" class="share-button facebook" id="shareFacebook">
+          <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        <a href="#" class="share-button whatsapp" id="shareWhatsApp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="#" class="share-button telegram" id="shareTelegram">
+          <i class="fab fa-telegram"></i> Telegram
+        </a>
+        <a href="#" class="share-button copy" id="copyLink">
+          <i class="fas fa-copy"></i> Copiar Enlace
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="host-info">
+        <div class="host-avatar">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <h3>Host: Edwar Hernandez</h3>
+        <p>Especialista en IA y Automatización con más de 5 años de experiencia</p>
+      </div>
+      
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-phone contact-icon"></i>
+          <span>1323-285-0508</span>
+        </div>
         
-        // COMPARTIR POR SMS
-        function shareSMS() {
-            const message = `Únete a la sesión de Automatización con IA hoy a las 5PM PST. Zoom: https://us06web.zoom.us/j/2216623617 ID: 2216623617 Código: 33377`;
-            const phoneNumber = '+1234567890'; // CAMBIA ESTE NÚMERO
-            
-            const url = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
-            window.location.href = url;
-        }
+        <div class="contact-item">
+          <i class="fas fa-envelope contact-icon"></i>
+          <span>jobshndez@gmail.com</span>
+        </div>
         
-        // INICIALIZACIÓN
-        document.addEventListener('DOMContentLoaded', function() {
-            // Contador en tiempo real
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt contact-icon"></i>
+          <span>Arcadia, California</span>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>© 2023 Taller Gratuito IA & Automatización. Todos los derechos reservados.</p>
+        <p>Este es un taller educativo sin costo de inscripción.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Variables para control del video
+    let videoStarted = false;
+    let videoEnded = false;
+    // Extraer el ID del video de YouTube del nuevo enlace
+    const videoId = '9i8HzENK6Js';
+    
+    // Elementos del DOM
+    const videoThumbnail = document.getElementById('videoThumbnail');
+    const videoFrame = document.getElementById('videoFrame');
+    const videoMessage = document.getElementById('videoMessage');
+    const registrationButton = document.getElementById('registrationButton');
+    const registrationSection = document.getElementById('registrationSection');
+    const shareLinkButton = document.getElementById('shareLinkButton');
+    
+    // URL de la página para compartir
+    const pageUrl = 'https://zoom-lilac-iota.vercel.app';
+    
+    // Configurar URL del video embebido (sin redirección a YouTube)
+    const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&autoplay=1&controls=1&showinfo=0&iv_load_policy=3&enablejsapi=1&origin=${window.location.origin}`;
+    
+    // Cargar la API de YouTube
+    let tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    let firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+    // Variable para el reproductor de YouTube
+    let player;
+    
+    // Esta función se llama cuando la API de YouTube está lista
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('videoFrame', {
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+    
+    // Cuando el reproductor está listo
+    function onPlayerReady(event) {
+      console.log('Reproductor de YouTube listo');
+    }
+    
+    // Controlar los cambios de estado del video
+    function onPlayerStateChange(event) {
+      // Cuando el video comienza a reproducirse
+      if (event.data === YT.PlayerState.PLAYING && !videoStarted) {
+        videoStarted = true;
+        videoMessage.innerHTML = '<i class="fas fa-play-circle"></i> El video se está reproduciendo. Al finalizar, serás redirigido al formulario de registro.';
+        videoMessage.style.background = 'rgba(0, 224, 255, 0.15)';
+      }
+      
+      // Cuando el video termina
+      if (event.data === YT.PlayerState.ENDED && !videoEnded) {
+        videoEnded = true;
+        videoMessage.innerHTML = '<i class="fas fa-check-circle"></i> ¡Video completado! Redirigiendo al formulario de registro...';
+        videoMessage.style.background = 'rgba(255, 215, 0, 0.15)';
+        
+        // Resaltar la sección de registro
+        registrationSection.style.animation = 'pulse 1.5s ease 3';
+        registrationSection.style.boxShadow = '0 0 30px rgba(255, 215, 0, 0.5)';
+        
+        // Desplazarse suavemente al botón de registro
+        setTimeout(() => {
+          registrationSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 1000);
+        
+        // Simular clic automático en el botón de registro después de 3 segundos
+        setTimeout(() => {
+          videoMessage.innerHTML = '<i class="fas fa-external-link-alt"></i> Redirigiendo al formulario de registro...';
+          
+          // Abrir el formulario en una nueva pestaña
+          window.open(registrationButton.href, '_blank');
+          
+          // También resaltar aún más el botón
+          registrationButton.style.animation = 'pulse 0.5s ease infinite';
+          registrationButton.style.boxShadow = '0 0 25px rgba(255, 215, 0, 0.7)';
+        }, 3000);
+      }
+    }
+    
+    // Cuando se hace clic en el thumbnail
+    videoThumbnail.addEventListener('click', function() {
+      // Ocultar el thumbnail
+      videoThumbnail.style.display = 'none';
+      
+      // Mostrar el iframe
+      videoFrame.style.display = 'block';
+      
+      // Establecer la fuente del video (protegido)
+      videoFrame.src = embedUrl;
+      
+      // Actualizar el mensaje
+      videoMessage.innerHTML = '<i class="fas fa-play-circle"></i> El video se está cargando. Por favor, espera...';
+    });
+    
+    // Configurar botones de compartir
+    document.addEventListener('DOMContentLoaded', function() {
+      // Configurar URL para compartir en botón principal
+      shareLinkButton.href = pageUrl;
+      
+      // Configurar botones de compartir en redes sociales
+      const shareText = encodeURIComponent('🚀 Taller GRATUITO de IA & Automatización. Aprende a usar Inteligencia Artificial, Redes Sociales y automatiza ingresos con tu proyecto o marca personal.');
+      const shareUrl = encodeURIComponent(pageUrl);
+      
+      // Facebook
+      document.getElementById('shareFacebook').href = 
+        `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${shareText}`;
+      
+      // WhatsApp
+      document.getElementById('shareWhatsApp').href = 
+        `https://wa.me/?text=${shareText}%20${shareUrl}`;
+      
+      // Telegram
+      document.getElementById('shareTelegram').href = 
+        `https://t.me/share/url?url=${shareUrl}&text=${shareText}`;
+      
+      // Copiar enlace al portapapeles
+      document.getElementById('copyLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        navigator.clipboard.writeText(pageUrl)
+          .then(() => {
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-check"></i> ¡Enlace copiado!';
+            this.style.background = '#4CAF50';
             
-            // Botón de unirse
-            document.getElementById('join-now-btn').addEventListener('click', function() {
-                window.open('https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1', '_blank');
-            });
-            
-            // Modal de zonas horarias
-            document.getElementById('show-timezones').addEventListener('click', function() {
-                calculateExactTimezones();
-                document.getElementById('timezoneModal').style.display = 'flex';
-            });
-            
-            // Cerrar modal
-            document.querySelector('.close-modal').addEventListener('click', function() {
-                document.getElementById('timezoneModal').style.display = 'none';
-            });
-            
-            // Botones para compartir
-            document.getElementById('whatsapp-share').addEventListener('click', shareWhatsApp);
-            document.getElementById('sms-share').addEventListener('click', shareSMS);
-            
-            // Videos
-            document.querySelectorAll('.video-player').forEach(player => {
-                player.addEventListener('click', function() {
-                    const videoId = this.dataset.videoId;
-                    const iframe = document.createElement('iframe');
-                    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
-                    iframe.style.width = '100%';
-                    iframe.style.height = '100%';
-                    iframe.style.border = 'none';
-                    iframe.setAttribute('allowfullscreen', '');
-                    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-                    
-                    this.innerHTML = '';
-                    this.appendChild(iframe);
-                });
-            });
-            
-            // Cerrar modal al hacer clic fuera
-            window.addEventListener('click', function(event) {
-                const modal = document.getElementById('timezoneModal');
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-            
-            // Precargar zonas horarias
-            calculateExactTimezones();
+            setTimeout(() => {
+              this.innerHTML = originalText;
+              this.style.background = '';
+            }, 2000);
+          })
+          .catch(err => {
+            console.error('Error al copiar: ', err);
+            alert('No se pudo copiar el enlace. Intenta manualmente: ' + pageUrl);
+          });
+      });
+      
+      // Añadir animación sutil al botón principal
+      const ctaButton = document.querySelector('.cta-button');
+      if (ctaButton) {
+        ctaButton.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-5px) scale(1.02)';
         });
-    </script>
+        
+        ctaButton.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+        });
+      }
+    });
+    
+    // Efecto de scroll suave para enlaces internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Contador de tiempo para crear urgencia
+    function updateCountdown() {
+      const countdownElement = document.querySelector('.guarantee p:last-child');
+      if (countdownElement && countdownElement.innerHTML.includes('Cupos limitados')) {
+        // Podrías agregar aquí un contador de tiempo real si lo deseas
+      }
+    }
+    
+    // Inicializar cuando el documento esté listo
+    document.addEventListener('DOMContentLoaded', function() {
+      updateCountdown();
+    });
+  </script>
 </body>
 </html>
