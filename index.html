@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descubre cómo Automatizar tus Servicios con IA</title>
+    <title>Descubre cómo Automatizar tus Servicios con IA - SESIÓN HOY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
+            font-family: 'Open Sans', sans-serif;
             background: linear-gradient(135deg, #0c2461 0%, #1e3799 50%, #4a69bd 100%);
             color: #333;
             line-height: 1.6;
@@ -32,29 +33,58 @@
         }
         
         .logo {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 3rem;
+            margin-bottom: 20px;
             color: #FFD700;
         }
         
         h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            background: linear-gradient(to right, #FF5722, #FF9800);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.2;
         }
         
         .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
+            font-size: 1.6rem;
+            margin-bottom: 30px;
             color: #f8f9fa;
-            max-width: 800px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 600;
         }
         
         .highlight {
             color: #FFD700;
-            font-weight: bold;
+            font-weight: 800;
+        }
+        
+        .urgent-badge {
+            display: inline-block;
+            background: linear-gradient(to right, #FF416C, #FF4B2B);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
         .content-wrapper {
@@ -77,124 +107,161 @@
         .card {
             background-color: white;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            padding: 35px;
             margin-bottom: 30px;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
         h2 {
-            color: #1e3799;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f1f1f1;
+            font-family: 'Montserrat', sans-serif;
+            color: #1a237e;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #FFD700;
+            font-weight: 800;
+            font-size: 2.2rem;
         }
         
         h3 {
-            color: #0c2461;
-            margin: 20px 0 15px;
+            font-family: 'Montserrat', sans-serif;
+            color: #283593;
+            margin: 25px 0 20px;
+            font-weight: 700;
+            font-size: 1.6rem;
         }
         
         .intro-text {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
+            font-size: 1.25rem;
+            margin-bottom: 30px;
             color: #444;
+            line-height: 1.8;
         }
         
         .countdown-container {
             text-align: center;
-            padding: 25px;
-            background: linear-gradient(to right, #1e3c72, #2a5298);
+            padding: 30px;
+            background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
             border-radius: 15px;
             color: white;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .countdown-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            z-index: 0;
         }
         
         .countdown-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 25px;
             color: #FFD700;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
         }
         
         #countdown {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
         
         .countdown-item {
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 10px;
-            padding: 20px 15px;
-            min-width: 100px;
-            backdrop-filter: blur(5px);
+            background-color: rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
+            padding: 25px 20px;
+            min-width: 120px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .countdown-value {
-            font-size: 2.5rem;
-            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
             display: block;
             color: #FFD700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .countdown-label {
-            font-size: 1rem;
+            font-size: 1.1rem;
             text-transform: uppercase;
-            margin-top: 5px;
+            margin-top: 8px;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
         
         .zoom-details {
             background-color: #f8f9fa;
-            border-left: 5px solid #1e3799;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 10px 10px 0;
+            border-left: 5px solid #FF5722;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
         .detail-item {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: flex;
             align-items: flex-start;
         }
         
         .detail-icon {
             color: #1e3799;
-            margin-right: 12px;
+            margin-right: 15px;
             margin-top: 3px;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            min-width: 30px;
         }
         
         .time-zone-btn-container {
             text-align: center;
-            margin: 25px 0;
+            margin: 30px 0;
         }
         
         .time-zone-btn {
             display: inline-block;
-            background: linear-gradient(to right, #1e3c72, #2a5298);
+            background: linear-gradient(to right, #1a237e, #3949ab);
             color: white;
-            padding: 15px 30px;
+            padding: 18px 35px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1.2rem;
             text-align: center;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(30, 60, 114, 0.4);
+            box-shadow: 0 8px 20px rgba(26, 35, 126, 0.4);
             border: none;
             cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
         }
         
         .time-zone-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(30, 60, 114, 0.6);
-            background: linear-gradient(to right, #2a5298, #1e3c72);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(26, 35, 126, 0.6);
+            background: linear-gradient(to right, #3949ab, #1a237e);
         }
         
         .modal {
@@ -205,30 +272,44 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.85);
             align-items: center;
             justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         .modal-content {
             background-color: white;
-            padding: 30px;
+            padding: 35px;
             border-radius: 15px;
-            max-width: 800px;
+            max-width: 850px;
             width: 90%;
-            max-height: 80vh;
+            max-height: 85vh;
             overflow-y: auto;
             position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         
         .close-modal {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
+            top: 20px;
+            right: 25px;
+            font-size: 32px;
             font-weight: bold;
             color: #1e3799;
             cursor: pointer;
+            transition: color 0.3s;
         }
         
         .close-modal:hover {
@@ -237,170 +318,360 @@
         
         .time-zone-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
         }
         
         .time-zone-card {
-            background-color: #f1f8ff;
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #d0e2ff;
+            background: linear-gradient(145deg, #f1f8ff, #e3f2fd);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #bbdefb;
             text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .time-zone-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
         .time-zone-name {
-            font-weight: bold;
+            font-weight: 700;
             color: #1e3799;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .time-zone-time {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: #0c2461;
-            font-weight: bold;
+            font-weight: 800;
+            margin: 10px 0;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .time-zone-date {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #666;
-            margin-top: 5px;
+            margin-top: 8px;
         }
         
         .video-container {
-            margin: 30px 0;
-            border-radius: 10px;
+            margin: 35px 0;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .video-wrapper {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-            height: 0;
-            overflow: hidden;
+            background: #000;
         }
         
-        .video-wrapper iframe {
+        .video-player {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background-color: #000;
+            cursor: pointer;
+        }
+        
+        .video-thumbnail {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border: 0;
+            object-fit: cover;
+            opacity: 0.9;
         }
         
-        .video-placeholder {
-            background-color: #2c3e50;
-            color: white;
-            height: 300px;
+        .video-thumbnail-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            color: white;
             text-align: center;
             padding: 20px;
         }
         
-        .video-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
+        .play-button {
+            font-size: 5rem;
             color: #FFD700;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
         }
         
-        .instructions {
-            background-color: #fff9e6;
-            border: 2px dashed #FFD700;
-            padding: 25px;
-            border-radius: 10px;
-            margin-top: 30px;
+        .video-player:hover .play-button {
+            transform: scale(1.1);
         }
         
-        .instructions h3 {
-            color: #e67e22;
-            margin-top: 0;
+        .video-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
         }
         
-        .instructions-list {
-            padding-left: 20px;
-            margin: 20px 0;
+        .video-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
         }
         
-        .instructions-list li {
-            margin-bottom: 12px;
-        }
-        
-        .warning {
-            color: #e74c3c;
-            font-weight: bold;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(to right, #FF416C, #FF4B2B);
-            color: white;
-            padding: 18px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.3rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
-            margin-top: 20px;
-            border: none;
-            cursor: pointer;
+        .video-iframe-container {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            display: none;
         }
         
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
-            background: linear-gradient(to right, #FF4B2B, #FF416C);
+        .video-iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
         
-        .btn-join {
-            background: linear-gradient(to right, #00b09b, #96c93d);
-            box-shadow: 0 5px 15px rgba(0, 176, 155, 0.4);
+        .video-caption {
+            background: #f5f5f5;
+            padding: 15px 20px;
+            font-size: 1rem;
+            color: #555;
+            border-top: 1px solid #eee;
         }
         
-        .btn-join:hover {
-            background: linear-gradient(to right, #96c93d, #00b09b);
-            box-shadow: 0 8px 20px rgba(0, 176, 155, 0.6);
+        .video-caption i {
+            color: #1e3799;
+            margin-right: 10px;
         }
         
         .pre-session-message {
-            background-color: #e8f4fc;
-            border-left: 5px solid #1e3799;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 10px 10px 0;
+            background-color: #FFF3E0;
+            border-left: 5px solid #FF9800;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .pre-session-message strong {
+            color: #EF6C00;
+            font-size: 1.2rem;
+        }
+        
+        .today-session {
+            background: linear-gradient(135deg, #FFF9C4, #FFF59D);
+            border: 3px solid #FFD600;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(255, 214, 0, 0.2);
+        }
+        
+        .today-session h2 {
+            color: #F57C00;
+            margin-top: 0;
+            border-bottom: none;
+        }
+        
+        .instructions {
+            background-color: #FFF8E1;
+            border: 3px dashed #FFB300;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 35px;
+            box-shadow: 0 10px 20px rgba(255, 179, 0, 0.1);
+        }
+        
+        .instructions h3 {
+            color: #F57C00;
+            margin-top: 0;
+            font-size: 1.8rem;
+        }
+        
+        .instructions-list {
+            padding-left: 25px;
+            margin: 25px 0;
+        }
+        
+        .instructions-list li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .warning {
+            color: #D32F2F;
+            font-weight: 800;
+        }
+        
+        .btn {
+            display: block;
+            background: linear-gradient(to right, #FF9500, #FF5E3A);
+            color: white;
+            padding: 22px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(255, 149, 0, 0.4);
+            margin-top: 25px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #FF5E3A, #FF9500);
+            z-index: -1;
+            transition: opacity 0.4s ease;
+            opacity: 0;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 149, 0, 0.6);
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
+        }
+        
+        .btn-join {
+            background: linear-gradient(to right, #00C853, #64DD17);
+            box-shadow: 0 10px 25px rgba(0, 200, 83, 0.4);
+            animation: pulse 2s infinite;
+        }
+        
+        .btn-join::before {
+            background: linear-gradient(to right, #64DD17, #00C853);
+        }
+        
+        .btn-join:hover {
+            box-shadow: 0 15px 30px rgba(0, 200, 83, 0.6);
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn-share {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            min-width: 250px;
+        }
+        
+        .btn-share i {
+            margin-right: 12px;
+            font-size: 1.5rem;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+            background: linear-gradient(to right, #128C7E, #25D366);
+        }
+        
+        .btn-sms {
+            background: linear-gradient(to right, #34B7F1, #0A8DFF);
+            color: white;
+        }
+        
+        .btn-sms:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(52, 183, 241, 0.4);
+            background: linear-gradient(to right, #0A8DFF, #34B7F1);
         }
         
         footer {
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 0;
             color: white;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
         }
         
         .social-icons {
-            margin-top: 20px;
+            margin-top: 25px;
         }
         
         .social-icons a {
             color: white;
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s;
+            font-size: 1.8rem;
+            margin: 0 15px;
+            transition: all 0.3s;
+            display: inline-block;
         }
         
         .social-icons a:hover {
             color: #FFD700;
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.6rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+            
+            .btn-share {
+                min-width: 220px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -416,8 +687,73 @@
                 font-size: 1.2rem;
             }
             
+            .urgent-badge {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+            }
+            
             .countdown-item {
-                min-width: 80px;
+                min-width: 90px;
+                padding: 20px 15px;
+            }
+            
+            .countdown-value {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                padding: 20px 30px;
+                font-size: 1.3rem;
+            }
+            
+            .modal-content {
+                padding: 25px;
+                width: 95%;
+            }
+            
+            .time-zone-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-title {
+                font-size: 1.5rem;
+            }
+            
+            .play-button {
+                font-size: 4rem;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-share {
+                width: 100%;
+                max-width: 300px;
+                min-width: auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 30px 0 20px;
+            }
+            
+            h1 {
+                font-size: 1.9rem;
+            }
+            
+            .countdown {
+                gap: 15px;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
                 padding: 15px 10px;
             }
             
@@ -425,13 +761,14 @@
                 font-size: 2rem;
             }
             
-            .modal-content {
-                padding: 20px;
-                width: 95%;
+            .btn {
+                font-size: 1.2rem;
+                padding: 18px 25px;
             }
             
-            .time-zone-grid {
-                grid-template-columns: 1fr;
+            .btn-share {
+                padding: 16px 25px;
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -442,30 +779,48 @@
             <div class="logo">
                 <i class="fas fa-robot"></i>
             </div>
+            <div class="urgent-badge">
+                <i class="fas fa-bolt"></i> SESIÓN HOY - NO TE LO PIERDAS
+            </div>
             <h1>Descubre cómo <span class="highlight">Automatizar tus Servicios</span> con IA</h1>
             <p class="subtitle">Nuestro equipo de automatización te invita a conocer algo que está en lanzamiento y en tendencia a nivel global...</p>
         </header>
         
+        <div class="today-session">
+            <h2 style="color: #e67e22; margin-top: 0;"><i class="fas fa-calendar-day"></i> ¡SESIÓN ESPECIAL HOY!</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 10px; font-weight: 700;">La sesión en vivo comienza <strong style="color: #D32F2F;">HOY a las 5:00 PM (hora de Los Ángeles)</strong></p>
+            <p style="font-size: 1.1rem;">Esta es una oportunidad única para aprender sobre automatización con IA directamente de expertos.</p>
+        </div>
+        
         <div class="content-wrapper">
             <div class="main-content">
                 <div class="card">
-                    <h2>¡No te quedes fuera de esta revolución!</h2>
-                    <p class="intro-text">La Inteligencia Artificial está transformando la manera en que ofrecemos servicios. Descubre herramientas y estrategias que están cambiando el juego a nivel mundial y cómo puedes implementarlas en tu negocio hoy mismo.</p>
+                    <h2>¡Transforma tu Negocio con IA Hoy Mismo!</h2>
+                    <p class="intro-text">La Inteligencia Artificial está revolucionando la manera en que ofrecemos servicios. Descubre herramientas y estrategias que están cambiando el juego a nivel mundial y cómo puedes implementarlas en tu negocio para ahorrar tiempo, reducir costos y aumentar tus ingresos.</p>
                     
                     <!-- Video de introducción -->
                     <div class="video-container">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/cv4RUNoRpZU" title="Video de introducción sobre automatización con IA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="video-player" id="video-intro-player" data-video-id="cv4RUNoRpZU">
+                            <img src="https://img.youtube.com/vi/cv4RUNoRpZU/maxresdefault.jpg" alt="Video de introducción sobre automatización con IA" class="video-thumbnail">
+                            <div class="video-thumbnail-overlay">
+                                <div class="play-button">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                                <div class="video-title">Introducción a la Automatización con IA</div>
+                                <div class="video-description">Descubre por qué la IA es la herramienta más poderosa para escalar tu negocio en 2025</div>
+                            </div>
+                            <div class="video-iframe-container" id="video-intro-iframe">
+                                <!-- El iframe de YouTube se cargará aquí dinámicamente -->
+                            </div>
+                        </div>
+                        <div class="video-caption">
+                            <i class="fas fa-info-circle"></i> Mira este video introductorio para entender el poder de la automatización con IA
                         </div>
                     </div>
                     
                     <div class="countdown-container">
-                        <div class="countdown-title">La sesión en vivo comienza en:</div>
+                        <div class="countdown-title">La sesión en vivo HOY comienza en:</div>
                         <div id="countdown">
-                            <div class="countdown-item">
-                                <span class="countdown-value" id="days">00</span>
-                                <span class="countdown-label">Días</span>
-                            </div>
                             <div class="countdown-item">
                                 <span class="countdown-value" id="hours">00</span>
                                 <span class="countdown-label">Horas</span>
@@ -483,15 +838,25 @@
                         <!-- Botón para ver zonas horarias -->
                         <div class="time-zone-btn-container">
                             <button class="time-zone-btn" id="show-time-zones">
-                                <i class="fas fa-globe-americas"></i> Ver horario en tu país
+                                <i class="fas fa-globe-americas"></i> ¿A qué hora es en mi país?
                             </button>
                         </div>
                     </div>
                     
                     <!-- Video antes de la reunión -->
                     <div class="video-container" id="pre-meeting-video">
-                        <div class="video-wrapper">
-                            <iframe src="https://www.youtube.com/embed/go3ZHb2lg5M" title="Video preparatorio antes de la reunión" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="video-player" id="video-preplayer" data-video-id="go3ZHb2lg5M">
+                            <img src="https://img.youtube.com/vi/go3ZHb2lg5M/maxresdefault.jpg" alt="Video preparatorio antes de la reunión" class="video-thumbnail">
+                            <div class="video-thumbnail-overlay">
+                                <div class="play-button">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                                <div class="video-title">Preparación para la Sesión en Vivo</div>
+                                <div class="video-description">Aprende cómo sacar el máximo provecho de la sesión de hoy con estos consejos clave</div>
+                            </div>
+                            <div class="video-iframe-container" id="video-pre-iframe">
+                                <!-- El iframe de YouTube se cargará aquí dinámicamente -->
+                            </div>
                         </div>
                         <div class="pre-session-message">
                             <p><strong>Mira este video antes de unirte a la sesión en vivo para prepararte y sacar el máximo provecho.</strong></p>
@@ -501,9 +866,9 @@
                     <h3>Detalles de la Sesión en Zoom</h3>
                     <div class="zoom-details">
                         <div class="detail-item">
-                            <div class="detail-icon"><i class="fas fa-calendar-alt"></i></div>
+                            <div class="detail-icon"><i class="fas fa-calendar-day"></i></div>
                             <div>
-                                <strong>Fecha y hora principal (Los Ángeles):</strong><br>
+                                <strong>¡HOY MISMO!</strong><br>
                                 <span id="main-time">Calculando...</span>
                             </div>
                         </div>
@@ -511,7 +876,7 @@
                             <div class="detail-icon"><i class="fas fa-video"></i></div>
                             <div>
                                 <strong>Enlace de Zoom:</strong><br>
-                                <a href="https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1&omn=88364061904" target="_blank">https://us06web.zoom.us/j/2216623617</a>
+                                <a href="https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1&omn=88364061904" target="_blank" id="zoom-link">https://us06web.zoom.us/j/2216623617</a>
                             </div>
                         </div>
                         <div class="detail-item">
@@ -528,51 +893,41 @@
                         </div>
                     </div>
                     
-                    <!-- Botón de unirse a la reunión (se activa cuando es hora) -->
+                    <!-- Botón principal de llamado a la acción -->
                     <button id="join-meeting-btn" class="btn">
-                        <i class="fas fa-hourglass-half"></i> LA SESIÓN COMENZARÁ PRONTO
+                        <i class="fas fa-ticket-alt"></i> ¡GARANTIZA TU CUPO! - Acceso Ilimitado a la Grabación
                     </button>
                     <a href="https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1&omn=88364061904" target="_blank" id="direct-zoom-link" style="display: none;" class="btn btn-join">
-                        <i class="fas fa-door-open"></i> ÚNETE A LA SESIÓN EN VIVO AHORA
+                        <i class="fas fa-door-open"></i> ¡ÚNETE A LA SESIÓN EN VIVO AHORA!
                     </a>
                 </div>
                 
                 <div class="instructions">
                     <h3><i class="fas fa-exclamation-circle"></i> INSTRUCCIONES IMPORTANTES (LEER CON CUIDADO)</h3>
                     <ul class="instructions-list">
-                        <li>La sesión comenzará puntualmente según el horario mostrado. <span class="warning">Te recomendamos conectarte 5 minutos antes.</span></li>
+                        <li>La sesión comenzará <strong>HOY puntualmente a las 5:00 PM (hora de Los Ángeles)</strong>. <span class="warning">Te recomendamos conectarte 10 minutos antes.</span></li>
                         <li>Guarda esta página para acceder rápidamente a la sesión cuando comience.</li>
                         <li>Ten preparado lápiz y papel para tomar notas durante la presentación.</li>
                         <li>Asegúrate de tener una conexión estable a internet para no perderte detalles importantes.</li>
                         <li>Durante la sesión, habrá un espacio para preguntas al final. Prepara tus dudas sobre automatización con IA.</li>
                         <li>Si es tu primera vez usando Zoom, <span class="warning">descarga la aplicación con anticipación</span> desde zoom.us/download</li>
-                        <li>Esta sesión se llevará a cabo de lunes a viernes a la misma hora. Si no puedes hoy, regresa mañana.</li>
                         <li><span class="warning">NO compartas el enlace de Zoom ni el código de acceso con personas no invitadas.</span></li>
+                        <li>Si no puedes asistir hoy, esta sesión se repite de lunes a viernes a la misma hora.</li>
                     </ul>
                 </div>
             </div>
             
             <div class="side-content">
                 <div class="card">
-                    <h2><i class="fas fa-bullhorn"></i> ¿Qué Aprenderás?</h2>
+                    <h2><i class="fas fa-bullhorn"></i> ¿Qué Aprenderás HOY?</h2>
                     <ul style="padding-left: 20px; margin-top: 15px;">
-                        <li>Las herramientas de IA más efectivas para automatizar servicios</li>
-                        <li>Cómo implementar automatizaciones sin conocimientos técnicos avanzados</li>
-                        <li>Casos de éxito reales de negocios que ya están usando estas estrategias</li>
-                        <li>El futuro de la automatización y cómo prepararte para los próximos cambios</li>
-                        <li>Recursos gratuitos para comenzar tu proceso de automatización hoy mismo</li>
+                        <li><strong>Las herramientas de IA más efectivas</strong> para automatizar servicios</li>
+                        <li><strong>Cómo implementar automatizaciones</strong> sin conocimientos técnicos avanzados</li>
+                        <li><strong>Casos de éxito reales</strong> de negocios que ya están usando estas estrategias</li>
+                        <li><strong>El futuro de la automatización</strong> y cómo prepararte para los próximos cambios</li>
+                        <li><strong>Recursos gratuitos</strong> para comenzar tu proceso de automatización hoy mismo</li>
+                        <li><strong style="color: #FF5722;">Bono especial:</strong> Plantillas descargables para empezar inmediatamente</li>
                     </ul>
-                </div>
-                
-                <div class="card">
-                    <h2><i class="fas fa-calendar-check"></i> Sesiones Programadas</h2>
-                    <p>Esta sesión se realiza <strong>de lunes a viernes</strong> a las 5:00 PM (hora de Los Ángeles). No necesitas registrarte nuevamente para futuras sesiones.</p>
-                    <p>Simplemente guarda esta página y regresa cuando desees participar nuevamente.</p>
-                    
-                    <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 20px;">
-                        <h3 style="margin-top: 0; color: #1e3799;"><i class="fas fa-sync-alt"></i> Automatización de Horarios</h3>
-                        <p>Los horarios mostrados se actualizan automáticamente para reflejar la próxima sesión disponible de lunes a viernes.</p>
-                    </div>
                 </div>
                 
                 <div class="card">
@@ -585,22 +940,43 @@
                         <li>Cualquier persona interesada en el futuro del trabajo y la tecnología</li>
                     </ul>
                 </div>
+                
+                <div class="card">
+                    <h2><i class="fas fa-calendar-check"></i> Próximas Sesiones</h2>
+                    <p>Si no puedes asistir hoy, esta sesión se repite <strong>de lunes a viernes a las 5:00 PM (hora de Los Ángeles)</strong>.</p>
+                    <p>Simplemente guarda esta página y regresa cuando desees participar.</p>
+                    
+                    <div style="background-color: #f0f8ff; padding: 15px; border-radius: 8px; margin-top: 20px;">
+                        <h3 style="margin-top: 0; color: #1e3799;"><i class="fas fa-sync-alt"></i> Recordatorio Automático</h3>
+                        <p>La página se actualiza automáticamente para mostrar la próxima sesión disponible.</p>
+                    </div>
+                </div>
             </div>
+        </div>
+        
+        <!-- Botones para compartir -->
+        <div class="share-buttons">
+            <button class="btn-share btn-whatsapp" id="share-whatsapp">
+                <i class="fab fa-whatsapp"></i> Compartir por WhatsApp
+            </button>
+            <button class="btn-share btn-sms" id="share-sms">
+                <i class="fas fa-sms"></i> Compartir por SMS
+            </button>
         </div>
         
         <!-- Modal para zonas horarias -->
         <div id="timeZoneModal" class="modal">
             <div class="modal-content">
                 <span class="close-modal">&times;</span>
-                <h2><i class="fas fa-globe-americas"></i> Horario de la Sesión por País</h2>
-                <p>La sesión comienza a las <strong>5:00 PM (hora de Los Ángeles)</strong>. Aquí puedes ver a qué hora será en tu país:</p>
+                <h2><i class="fas fa-globe-americas"></i> ¿A qué hora es HOY en tu país?</h2>
+                <p>La sesión comienza <strong>HOY a las 5:00 PM (hora de Los Ángeles)</strong>. Aquí puedes ver a qué hora será en tu país:</p>
                 
                 <div class="time-zone-grid" id="time-zone-grid">
                     <!-- Las zonas horarias se generarán con JavaScript -->
                 </div>
                 
                 <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 8px;">
-                    <p><strong>Nota:</strong> Los horarios mostrados corresponden a la próxima sesión programada de lunes a viernes. Se ajustan automáticamente según la fecha de la sesión.</p>
+                    <p><strong>Nota:</strong> Todos los horarios mostrados corresponden a <strong>HOY</strong>. La sesión comienza puntualmente según el horario indicado.</p>
                 </div>
             </div>
         </div>
@@ -618,9 +994,13 @@
     </div>
 
     <script>
-        // Configuración inicial - sesión a las 5:00 PM hora de Los Ángeles (Pacífico)
+        // Configuración para HOY a las 5:00 PM hora de Los Ángeles
+        const today = new Date();
         const sessionHour = 17; // 5:00 PM
         const sessionMinute = 0;
+        
+        // Crear la fecha de la sesión de HOY
+        const sessionDate = new Date(today.getFullYear(), today.getMonth(), today.getDate(), sessionHour, sessionMinute, 0);
         
         // Zonas horarias con sus offsets relativos a Los Ángeles (PST/PDT)
         const timeZones = [
@@ -679,51 +1059,28 @@
             }
         }
         
-        // Función para obtener la próxima sesión (de lunes a viernes)
-        function getNextSessionDate() {
-            const now = new Date();
-            
-            // Crear fecha objetivo para hoy a las 5:00 PM hora de Los Ángeles
-            const targetDate = new Date(now);
-            targetDate.setHours(sessionHour, sessionMinute, 0, 0);
-            
-            // Ajustar a hora de Los Ángeles
-            const laOffset = getLAOffset(targetDate) * 60; // Convertir a minutos
-            const localOffset = now.getTimezoneOffset();
+        // Función para ajustar la fecha de la sesión a la hora de Los Ángeles
+        function getSessionDateTime() {
+            // Obtener offset de Los Ángeles para hoy
+            const laOffset = getLAOffset(sessionDate) * 60; // Convertir a minutos
+            const localOffset = today.getTimezoneOffset();
             const offsetDifference = laOffset - localOffset;
             
-            // Ajustar la fecha objetivo según la diferencia horaria
-            targetDate.setMinutes(targetDate.getMinutes() + offsetDifference);
+            // Crear copia de la fecha de sesión y ajustar según la diferencia horaria
+            const adjustedSessionDate = new Date(sessionDate.getTime());
+            adjustedSessionDate.setMinutes(adjustedSessionDate.getMinutes() + offsetDifference);
             
-            // Si ya pasó la sesión de hoy, buscar la próxima de lunes a viernes
-            if (targetDate < now) {
-                targetDate.setDate(targetDate.getDate() + 1);
-                
-                // Saltar fines de semana
-                while (targetDate.getDay() === 0 || targetDate.getDay() === 6) {
-                    targetDate.setDate(targetDate.getDate() + 1);
-                }
-            }
-            
-            // Si hoy es fin de semana, buscar el próximo lunes
-            const dayOfWeek = targetDate.getDay();
-            if (dayOfWeek === 0) { // Domingo
-                targetDate.setDate(targetDate.getDate() + 1);
-            } else if (dayOfWeek === 6) { // Sábado
-                targetDate.setDate(targetDate.getDate() + 2);
-            }
-            
-            return targetDate;
+            return adjustedSessionDate;
         }
         
         // Función para calcular la hora en diferentes zonas horarias
-        function calculateTimeZones(sessionDate) {
-            const laOffset = getLAOffset(sessionDate);
+        function calculateTimeZones(baseDate) {
+            const laOffset = getLAOffset(baseDate);
             const results = [];
             
             timeZones.forEach(zone => {
                 // Crear una nueva fecha ajustada según el offset
-                const zoneDate = new Date(sessionDate.getTime());
+                const zoneDate = new Date(baseDate.getTime());
                 
                 // Ajustar según la diferencia con Los Ángeles
                 // zone.offset es la diferencia en horas con Los Ángeles
@@ -743,39 +1100,44 @@
         
         // Función para actualizar el contador
         function updateCountdown() {
-            const nextSession = getNextSessionDate();
+            const sessionDateTime = getSessionDateTime();
             const now = new Date();
-            const timeDiff = nextSession - now;
+            const timeDiff = sessionDateTime - now;
             
-            if (timeDiff <= 0) {
-                // Si ya pasó la sesión, recalcular para la siguiente
-                const newNextSession = getNextSessionDate();
-                updateCountdownWithDate(newNextSession);
+            // Si la sesión ya pasó hoy, mostrar mensaje
+            if (timeDiff < 0) {
+                document.getElementById('countdown').innerHTML = `
+                    <div style="font-size: 1.5rem; padding: 20px;">
+                        <i class="fas fa-check-circle" style="color: #00b09b; font-size: 2rem;"></i><br>
+                        La sesión de hoy ya ha comenzado. ¡Únete ahora!
+                    </div>
+                `;
+                
+                // Mostrar botón de unirse
+                document.getElementById('join-meeting-btn').style.display = 'none';
+                document.getElementById('direct-zoom-link').style.display = 'block';
+                
+                // Actualizar mensaje principal
+                document.getElementById('main-time').innerHTML = `
+                    <span style="color: #e74c3c; font-weight: 800;">¡La sesión YA ESTÁ EN CURSO!</span><br>
+                    Únete ahora para no perderte nada
+                `;
+                
                 return;
             }
             
-            updateCountdownWithDate(nextSession);
-        }
-        
-        // Función auxiliar para actualizar contador con fecha específica
-        function updateCountdownWithDate(nextSession) {
-            const now = new Date();
-            const timeDiff = nextSession - now;
-            
-            // Calcular días, horas, minutos y segundos
-            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            // Calcular horas, minutos y segundos (no días porque es hoy)
+            const hours = Math.floor(timeDiff / (1000 * 60 * 60));
             const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
             
             // Actualizar el contador en la página
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
             document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
             
             // Actualizar la fecha y hora principal
-            document.getElementById('main-time').textContent = `${formatDate(nextSession)} a las ${formatTime(nextSession)}`;
+            document.getElementById('main-time').textContent = `${formatDate(sessionDateTime)} a las ${formatTime(sessionDateTime)}`;
             
             // Controlar la visibilidad del botón de unirse
             const joinBtn = document.getElementById('join-meeting-btn');
@@ -785,7 +1147,7 @@
             if (timeDiff <= 10 * 60 * 1000 && timeDiff > 0) {
                 joinBtn.style.display = 'none';
                 directLink.style.display = 'block';
-                joinBtn.innerHTML = '<i class="fas fa-door-open"></i> ÚNETE A LA SESIÓN EN VIVO AHORA';
+                joinBtn.innerHTML = '<i class="fas fa-door-open"></i> ¡ÚNETE A LA SESIÓN EN VIVO AHORA!';
             } else if (timeDiff <= 0) {
                 // Si ya es hora de la sesión
                 joinBtn.style.display = 'none';
@@ -794,14 +1156,14 @@
                 // Si aún no es hora
                 joinBtn.style.display = 'block';
                 directLink.style.display = 'none';
-                joinBtn.innerHTML = `<i class="fas fa-hourglass-half"></i> LA SESIÓN COMENZARÁ EN ${days > 0 ? days + ' DÍAS' : hours + ' HORAS'}`;
+                joinBtn.innerHTML = `<i class="fas fa-hourglass-half"></i> LA SESIÓN COMENZARÁ EN ${hours} HORAS`;
             }
         }
         
         // Función para mostrar zonas horarias en el modal
         function showTimeZones() {
-            const nextSession = getNextSessionDate();
-            const timeZonesData = calculateTimeZones(nextSession);
+            const sessionDateTime = getSessionDateTime();
+            const timeZonesData = calculateTimeZones(sessionDateTime);
             const container = document.getElementById('time-zone-grid');
             container.innerHTML = '';
             
@@ -820,6 +1182,57 @@
             
             // Mostrar el modal
             document.getElementById('timeZoneModal').style.display = 'flex';
+        }
+        
+        // Función para compartir por WhatsApp
+        function shareViaWhatsApp() {
+            const pageTitle = "Descubre cómo Automatizar tus Servicios con IA";
+            const pageUrl = window.location.href;
+            const message = `¡Mira esta sesión sobre Automatización con IA! ${pageTitle} - ${pageUrl}`;
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        // Función para compartir por SMS
+        function shareViaSMS() {
+            // REEMPLAZA ESTE NÚMERO CON TU NÚMERO DE TELÉFONO REAL
+            const phoneNumber = '+1234567890'; // Ejemplo: +5215512345678
+            const pageTitle = "Descubre cómo Automatizar tus Servicios con IA";
+            const pageUrl = window.location.href;
+            const message = `¡Mira esta sesión sobre Automatización con IA! ${pageTitle} - ${pageUrl}`;
+            const smsUrl = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+            window.location.href = smsUrl;
+        }
+        
+        // Función para cargar y reproducir videos de YouTube
+        function setupVideoPlayers() {
+            const videoPlayers = document.querySelectorAll('.video-player');
+            
+            videoPlayers.forEach(player => {
+                player.addEventListener('click', function() {
+                    const videoId = this.getAttribute('data-video-id');
+                    const iframeContainer = this.querySelector('.video-iframe-container');
+                    const thumbnail = this.querySelector('.video-thumbnail');
+                    const overlay = this.querySelector('.video-thumbnail-overlay');
+                    
+                    // Ocultar miniatura y overlay
+                    thumbnail.style.display = 'none';
+                    overlay.style.display = 'none';
+                    
+                    // Mostrar contenedor del iframe
+                    iframeContainer.style.display = 'block';
+                    
+                    // Crear y cargar el iframe de YouTube con parámetros para minimizar distracciones
+                    if (!iframeContainer.querySelector('iframe')) {
+                        const iframe = document.createElement('iframe');
+                        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&fs=0&controls=1&disablekb=1`;
+                        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                        iframe.setAttribute('allowfullscreen', 'false');
+                        iframe.setAttribute('frameborder', '0');
+                        iframeContainer.appendChild(iframe);
+                    }
+                });
+            });
         }
         
         // Inicializar la página
@@ -843,6 +1256,13 @@
                     modal.style.display = 'none';
                 }
             });
+            
+            // Configurar botones para compartir
+            document.getElementById('share-whatsapp').addEventListener('click', shareViaWhatsApp);
+            document.getElementById('share-sms').addEventListener('click', shareViaSMS);
+            
+            // Configurar reproductores de video
+            setupVideoPlayers();
             
             // Efecto de escritura al subtítulo
             const subtitle = document.querySelector('.subtitle');
