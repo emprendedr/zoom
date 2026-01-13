@@ -120,6 +120,75 @@
       100% { transform: scale(1); }
     }
 
+    /* Estilos para la sección de fecha/hora */
+    .datetime-section {
+      background: linear-gradient(45deg, rgba(0, 224, 255, 0.1), rgba(255, 215, 0, 0.1));
+      border-radius: 15px;
+      padding: 25px;
+      margin: 30px auto;
+      max-width: 800px;
+      text-align: center;
+      border: 2px solid var(--primary-color);
+      box-shadow: var(--shadow);
+      animation: slideUp 1s ease;
+    }
+
+    .datetime-section h3 {
+      font-size: 1.8rem;
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .datetime-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .datetime-item {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px 25px;
+      border-radius: 10px;
+      min-width: 200px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .datetime-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin: 5px 0;
+    }
+
+    .datetime-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .timezone-note {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      font-style: italic;
+    }
+
+    .next-session-info {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(255, 215, 0, 0.1);
+      border-radius: 10px;
+      border-left: 4px solid var(--secondary-color);
+    }
+
     .video-section {
       margin: 40px auto;
       max-width: 900px;
@@ -386,10 +455,11 @@
       text-align: center;
       margin: 40px auto;
       max-width: 600px;
-      padding: 20px;
+      padding: 25px;
       background: rgba(0, 224, 255, 0.05);
       border-radius: 15px;
       border: 1px solid rgba(0, 224, 255, 0.2);
+      animation: fadeIn 1.5s ease;
     }
 
     .share-buttons {
@@ -411,11 +481,12 @@
       color: white;
       transition: all 0.3s ease;
       border: 1px solid rgba(255, 255, 255, 0.2);
+      font-weight: 500;
     }
 
     .share-button:hover {
-      background: rgba(255, 255, 255, 0.2);
       transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
 
     .share-button.facebook:hover {
@@ -535,6 +606,14 @@
         bottom: 20px;
       }
       
+      .datetime-container {
+        flex-direction: column;
+      }
+      
+      .datetime-item {
+        min-width: 100%;
+      }
+      
       .share-buttons {
         flex-direction: column;
         align-items: center;
@@ -571,6 +650,14 @@
         height: 50px;
         font-size: 1.5rem;
       }
+      
+      .datetime-section {
+        padding: 20px;
+      }
+      
+      .datetime-value {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -589,6 +676,32 @@
         <i class="fas fa-gift"></i> Valor real: +$800 — HOY GRATIS
       </div>
     </header>
+
+    <!-- Sección de Fecha y Hora del Próximo Zoom -->
+    <section class="datetime-section" id="datetimeSection">
+      <h3><i class="fas fa-calendar-alt"></i> Próxima Sesión en Vivo</h3>
+      <div class="datetime-container">
+        <div class="datetime-item">
+          <div class="datetime-label">DÍA</div>
+          <div class="datetime-value" id="nextDay">Cargando...</div>
+        </div>
+        <div class="datetime-item">
+          <div class="datetime-label">FECHA</div>
+          <div class="datetime-value" id="nextDate">Cargando...</div>
+        </div>
+        <div class="datetime-item">
+          <div class="datetime-label">HORA</div>
+          <div class="datetime-value" id="nextTime">5:00 PM</div>
+        </div>
+      </div>
+      <div class="timezone-note">
+        <i class="fas fa-clock"></i> Hora local: Los Ángeles, California (GMT-7/-8)
+      </div>
+      <div class="next-session-info">
+        <p><i class="fas fa-video"></i> <strong>Duración:</strong> 1 hora (5:00 PM - 6:00 PM)</p>
+        <p><i class="fas fa-sync-alt"></i> La página se actualiza automáticamente para mostrar la próxima sesión</p>
+      </div>
+    </section>
 
     <!-- Sección de Video -->
     <section class="video-section">
@@ -655,11 +768,11 @@
         
         <div class="info-item">
           <div class="info-icon">
-            <i class="fas fa-clock"></i>
+            <i class="fas fa-map-marker-alt"></i>
           </div>
           <div>
-            <h4>Horario Flexible</h4>
-            <p>Talleres en vivo periódicamente. Regístrate para recibir las próximas fechas disponibles.</p>
+            <h4>Modalidad Híbrida</h4>
+            <p>Participa en vivo via Zoom o asiste presencialmente en <strong>Arcadia, CA</strong>.</p>
           </div>
         </div>
       </div>
@@ -701,7 +814,7 @@
     <!-- Sección de Compartir -->
     <section class="share-section">
       <h3><i class="fas fa-share-alt"></i> Comparte esta Oportunidad</h3>
-      <p>Ayuda a otros a descubrir este taller gratuito compartiendo el enlace:</p>
+      <p>Invita a tus amigos y colegas a este taller gratuito:</p>
       
       <div class="cta-button-container">
         <a href="https://zoom-lilac-iota.vercel.app" 
@@ -717,13 +830,13 @@
       
       <div class="share-buttons">
         <a href="#" class="share-button facebook" id="shareFacebook">
-          <i class="fab fa-facebook-f"></i> Facebook
+          <i class="fab fa-facebook-f"></i> Compartir en Facebook
         </a>
         <a href="#" class="share-button whatsapp" id="shareWhatsApp">
-          <i class="fab fa-whatsapp"></i> WhatsApp
+          <i class="fab fa-whatsapp"></i> Compartir en WhatsApp
         </a>
         <a href="#" class="share-button telegram" id="shareTelegram">
-          <i class="fab fa-telegram"></i> Telegram
+          <i class="fab fa-telegram"></i> Compartir en Telegram
         </a>
         <a href="#" class="share-button copy" id="copyLink">
           <i class="fas fa-copy"></i> Copiar Enlace
@@ -766,10 +879,16 @@
   </div>
 
   <script>
+    // URL de la página para compartir
+    const PAGE_URL = 'https://zoom-lilac-iota.vercel.app';
+    
+    // Configuración de horarios - Zoom de 5:00 PM a 6:00 PM hora de Los Ángeles
+    const ZOOM_START_HOUR = 17; // 5:00 PM en formato 24h
+    const ZOOM_END_HOUR = 18;   // 6:00 PM en formato 24h
+
     // Variables para control del video
     let videoStarted = false;
     let videoEnded = false;
-    // Extraer el ID del video de YouTube del nuevo enlace
     const videoId = '9i8HzENK6Js';
     
     // Elementos del DOM
@@ -778,12 +897,14 @@
     const videoMessage = document.getElementById('videoMessage');
     const registrationButton = document.getElementById('registrationButton');
     const registrationSection = document.getElementById('registrationSection');
-    const shareLinkButton = document.getElementById('shareLinkButton');
     
-    // URL de la página para compartir
-    const pageUrl = 'https://zoom-lilac-iota.vercel.app';
+    // Elementos de fecha/hora
+    const nextDayElement = document.getElementById('nextDay');
+    const nextDateElement = document.getElementById('nextDate');
+    const nextTimeElement = document.getElementById('nextTime');
+    const datetimeSection = document.getElementById('datetimeSection');
     
-    // Configurar URL del video embebido (sin redirección a YouTube)
+    // Configurar URL del video embebido
     const embedUrl = `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&autoplay=1&controls=1&showinfo=0&iv_load_policy=3&enablejsapi=1&origin=${window.location.origin}`;
     
     // Cargar la API de YouTube
@@ -794,6 +915,106 @@
     
     // Variable para el reproductor de YouTube
     let player;
+    
+    // ============================================
+    // FUNCIONES PARA MANEJAR FECHAS Y HORARIOS
+    // ============================================
+    
+    // Función para obtener la hora actual en Los Ángeles
+    function getLATime() {
+      const now = new Date();
+      return new Date(now.toLocaleString("en-US", {timeZone: "America/Los_Angeles"}));
+    }
+    
+    // Función para obtener la próxima fecha del Zoom
+    function getNextZoomDate() {
+      const laTime = getLATime();
+      
+      // Crear fecha para hoy a las 5:00 PM hora de Los Ángeles
+      const todayZoom = new Date(laTime);
+      todayZoom.setHours(ZOOM_START_HOUR, 0, 0, 0);
+      
+      // Crear fecha para mañana a las 5:00 PM hora de Los Ángeles
+      const tomorrowZoom = new Date(laTime);
+      tomorrowZoom.setDate(tomorrowZoom.getDate() + 1);
+      tomorrowZoom.setHours(ZOOM_START_HOUR, 0, 0, 0);
+      
+      // Si ya pasó el Zoom de hoy, mostrar el de mañana
+      if (laTime >= todayZoom && laTime.getHours() >= ZOOM_END_HOUR) {
+        return tomorrowZoom;
+      } else {
+        // Si es antes de las 5:00 PM hoy, mostrar Zoom de hoy
+        if (laTime < todayZoom) {
+          return todayZoom;
+        } else {
+          // Si estamos entre 5:00 PM y 6:00 PM, mostrar "EN VIVO AHORA"
+          return 'live';
+        }
+      }
+    }
+    
+    // Función para formatear fecha en español
+    function formatDate(date) {
+      const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+      
+      const dayName = days[date.getDay()];
+      const day = date.getDate();
+      const month = months[date.getMonth()];
+      const year = date.getFullYear();
+      
+      return `${day} de ${month} ${year}`;
+    }
+    
+    // Función para actualizar la sección de fecha/hora
+    function updateDateTimeSection() {
+      const nextZoom = getNextZoomDate();
+      
+      if (nextZoom === 'live') {
+        // Zoom en vivo ahora
+        nextDayElement.textContent = '¡EN VIVO AHORA!';
+        nextDateElement.textContent = 'Conéctate al Zoom';
+        nextTimeElement.textContent = '5:00 PM - 6:00 PM';
+        datetimeSection.style.background = 'linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 100, 0, 0.2))';
+        datetimeSection.style.borderColor = '#ffd700';
+        datetimeSection.style.animation = 'pulse 2s infinite';
+        
+        // Cambiar el texto del encabezado
+        datetimeSection.querySelector('h3').innerHTML = '<i class="fas fa-broadcast-tower"></i> SESIÓN EN VIVO AHORA';
+        
+        // Actualizar cada minuto mientras esté en vivo
+        setTimeout(updateDateTimeSection, 60000);
+      } else {
+        // Próximo Zoom programado
+        const dayName = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'][nextZoom.getDay()];
+        const formattedDate = formatDate(nextZoom);
+        
+        nextDayElement.textContent = dayName;
+        nextDateElement.textContent = formattedDate;
+        nextTimeElement.textContent = '5:00 PM';
+        datetimeSection.style.background = 'linear-gradient(45deg, rgba(0, 224, 255, 0.1), rgba(255, 215, 0, 0.1))';
+        datetimeSection.style.borderColor = 'var(--primary-color)';
+        datetimeSection.style.animation = '';
+        
+        // Restaurar texto original del encabezado
+        datetimeSection.querySelector('h3').innerHTML = '<i class="fas fa-calendar-alt"></i> Próxima Sesión en Vivo';
+        
+        // Calcular cuánto tiempo falta para el próximo Zoom
+        const laTime = getLATime();
+        const timeDiff = nextZoom - laTime;
+        
+        // Si el Zoom está en menos de 24 horas, actualizar más frecuentemente
+        if (timeDiff < 24 * 60 * 60 * 1000) {
+          setTimeout(updateDateTimeSection, 60000); // Actualizar cada minuto
+        } else {
+          setTimeout(updateDateTimeSection, 300000); // Actualizar cada 5 minutos
+        }
+      }
+    }
+    
+    // ============================================
+    // FUNCIONALIDAD DEL VIDEO
+    // ============================================
     
     // Esta función se llama cuando la API de YouTube está lista
     function onYouTubeIframeAPIReady() {
@@ -863,31 +1084,34 @@
       videoMessage.innerHTML = '<i class="fas fa-play-circle"></i> El video se está cargando. Por favor, espera...';
     });
     
+    // ============================================
+    // FUNCIONALIDAD PARA COMPARTIR
+    // ============================================
+    
     // Configurar botones de compartir
-    document.addEventListener('DOMContentLoaded', function() {
+    function setupShareButtons() {
       // Configurar URL para compartir en botón principal
-      shareLinkButton.href = pageUrl;
+      document.getElementById('shareLinkButton').href = PAGE_URL;
       
-      // Configurar botones de compartir en redes sociales
-      const shareText = encodeURIComponent('🚀 Taller GRATUITO de IA & Automatización. Aprende a usar Inteligencia Artificial, Redes Sociales y automatiza ingresos con tu proyecto o marca personal.');
-      const shareUrl = encodeURIComponent(pageUrl);
+      // Texto para compartir
+      const shareText = encodeURIComponent('🚀 Taller GRATUITO de IA & Automatización. Aprende a usar Inteligencia Artificial, Redes Sociales y automatiza ingresos con tu proyecto o marca personal. Regístrate gratis:');
       
       // Facebook
       document.getElementById('shareFacebook').href = 
-        `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${shareText}`;
+        `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(PAGE_URL)}&quote=${shareText}`;
       
       // WhatsApp
       document.getElementById('shareWhatsApp').href = 
-        `https://wa.me/?text=${shareText}%20${shareUrl}`;
+        `https://wa.me/?text=${shareText}%20${encodeURIComponent(PAGE_URL)}`;
       
       // Telegram
       document.getElementById('shareTelegram').href = 
-        `https://t.me/share/url?url=${shareUrl}&text=${shareText}`;
+        `https://t.me/share/url?url=${encodeURIComponent(PAGE_URL)}&text=${shareText}`;
       
       // Copiar enlace al portapapeles
       document.getElementById('copyLink').addEventListener('click', function(e) {
         e.preventDefault();
-        navigator.clipboard.writeText(pageUrl)
+        navigator.clipboard.writeText(PAGE_URL)
           .then(() => {
             const originalText = this.innerHTML;
             this.innerHTML = '<i class="fas fa-check"></i> ¡Enlace copiado!';
@@ -900,9 +1124,29 @@
           })
           .catch(err => {
             console.error('Error al copiar: ', err);
-            alert('No se pudo copiar el enlace. Intenta manualmente: ' + pageUrl);
+            alert('No se pudo copiar el enlace. Intenta manualmente: ' + PAGE_URL);
           });
       });
+    }
+    
+    // ============================================
+    // INICIALIZACIÓN
+    // ============================================
+    
+    // Inicializar cuando el documento esté listo
+    document.addEventListener('DOMContentLoaded', function() {
+      // Configurar fechas y horas
+      updateDateTimeSection();
+      
+      // Configurar botones de compartir
+      setupShareButtons();
+      
+      // Actualizar el año del copyright automáticamente
+      const currentYear = new Date().getFullYear();
+      const copyrightElements = document.querySelectorAll('.copyright p');
+      if (copyrightElements.length > 0 && currentYear > 2023) {
+        copyrightElements[0].innerHTML = copyrightElements[0].innerHTML.replace('2023', currentYear);
+      }
       
       // Añadir animación sutil al botón principal
       const ctaButton = document.querySelector('.cta-button');
@@ -915,37 +1159,24 @@
           this.style.transform = 'translateY(0) scale(1)';
         });
       }
-    });
-    
-    // Efecto de scroll suave para enlaces internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
-        }
+      
+      // Configurar scroll suave para enlaces internos
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
       });
-    });
-    
-    // Contador de tiempo para crear urgencia
-    function updateCountdown() {
-      const countdownElement = document.querySelector('.guarantee p:last-child');
-      if (countdownElement && countdownElement.innerHTML.includes('Cupos limitados')) {
-        // Podrías agregar aquí un contador de tiempo real si lo deseas
-      }
-    }
-    
-    // Inicializar cuando el documento esté listo
-    document.addEventListener('DOMContentLoaded', function() {
-      updateCountdown();
     });
   </script>
 </body>
