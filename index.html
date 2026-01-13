@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 AUTOMATIZACIÓN CON IA | ÚLTIMOS MINUTOS PARA UNIRTE</title>
+    <title>🚀 AUTOMATIZACIÓN CON IA | Sesión de 60 Minutos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -15,6 +15,7 @@
             --light: #f8f9fa;
             --success: #00C853;
             --warning: #FF5722;
+            --info: #2196F3;
         }
         
         * {
@@ -37,7 +38,7 @@
             padding: 20px;
         }
         
-        /* Header con más impacto */
+        /* Header */
         header {
             text-align: center;
             padding: 40px 0 30px;
@@ -74,18 +75,11 @@
             font-size: 1.1rem;
             margin-bottom: 20px;
             box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 8px 20px rgba(233, 30, 99, 0.6); }
-            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(233, 30, 99, 0.4); }
         }
         
         h1 {
             font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 900;
             margin-bottom: 20px;
             text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
@@ -98,7 +92,7 @@
         }
         
         .hook-text {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-bottom: 25px;
             color: white;
             max-width: 900px;
@@ -114,22 +108,22 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         
-        /* Contador urgente */
-        .urgent-countdown {
-            background: linear-gradient(135deg, rgba(255, 87, 34, 0.95), rgba(255, 152, 0, 0.95));
-            padding: 30px;
+        /* Contador principal */
+        .main-countdown {
+            background: linear-gradient(135deg, rgba(123, 31, 162, 0.95), rgba(233, 30, 99, 0.95));
+            padding: 35px;
             border-radius: 20px;
             color: white;
             margin: 30px auto;
-            max-width: 800px;
-            box-shadow: 0 15px 35px rgba(255, 87, 34, 0.4);
+            max-width: 900px;
+            box-shadow: 0 20px 40px rgba(123, 31, 162, 0.4);
             border: 3px solid rgba(255, 255, 255, 0.2);
             text-align: center;
             position: relative;
             overflow: hidden;
         }
         
-        .urgent-countdown::before {
+        .main-countdown::before {
             content: '';
             position: absolute;
             top: 0;
@@ -137,8 +131,8 @@
             right: 0;
             bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path fill="white" d="M50,10 L60,40 L90,40 L65,60 L75,90 L50,70 L25,90 L35,60 L10,40 L40,40 Z"/></svg>');
-            background-size: 100px;
-            opacity: 0.3;
+            background-size: 80px;
+            opacity: 0.2;
         }
         
         .countdown-title {
@@ -149,10 +143,10 @@
             font-weight: 800;
         }
         
-        #live-countdown {
+        #next-session-countdown {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
             position: relative;
             z-index: 1;
@@ -162,7 +156,7 @@
             background: rgba(255, 255, 255, 0.15);
             border-radius: 15px;
             padding: 25px 20px;
-            min-width: 130px;
+            min-width: 140px;
             backdrop-filter: blur(10px);
             border: 2px solid rgba(255, 255, 255, 0.3);
             transition: transform 0.3s;
@@ -170,6 +164,7 @@
         
         .countdown-unit:hover {
             transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
         }
         
         .countdown-number {
@@ -190,13 +185,78 @@
             font-weight: 700;
         }
         
-        .session-time {
+        .session-info {
+            margin-top: 25px;
+            font-size: 1.4rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            display: inline-block;
+            backdrop-filter: blur(5px);
+        }
+        
+        .session-status-container {
             margin-top: 20px;
-            font-size: 1.3rem;
-            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .status-upcoming {
+            background: linear-gradient(90deg, #2196F3, #03A9F4);
+            color: white;
+        }
+        
+        .status-active {
+            background: linear-gradient(90deg, #FF5722, #FF9800);
+            color: white;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .status-ended {
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            color: white;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.02); opacity: 0.9; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        /* Agenda de sesión */
+        .session-agenda {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        
+        .session-agenda h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .agenda-item {
+            background: var(--light);
             padding: 15px;
             border-radius: 10px;
-            display: inline-block;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .agenda-time {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .agenda-title {
+            font-weight: 600;
+            margin-bottom: 5px;
         }
         
         /* Contenido principal */
@@ -229,7 +289,7 @@
         }
         
         .card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
         }
         
@@ -243,7 +303,7 @@
             font-size: 2.2rem;
         }
         
-        /* Videos mejorados */
+        /* Videos */
         .video-container {
             margin: 35px 0;
             border-radius: 15px;
@@ -331,19 +391,17 @@
             letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
-            animation: ctaPulse 2s infinite;
-        }
-        
-        @keyframes ctaPulse {
-            0% { transform: scale(1); box-shadow: 0 15px 35px rgba(0, 200, 83, 0.5); }
-            50% { transform: scale(1.03); box-shadow: 0 20px 40px rgba(0, 200, 83, 0.7); }
-            100% { transform: scale(1); box-shadow: 0 15px 35px rgba(0, 200, 83, 0.5); }
         }
         
         .cta-button:hover {
             transform: translateY(-8px);
             box-shadow: 0 25px 50px rgba(0, 200, 83, 0.8);
             background: linear-gradient(90deg, #64DD17, var(--success));
+        }
+        
+        .cta-button-active {
+            background: linear-gradient(90deg, #FF5722, #FF9800);
+            animation: pulse 1s infinite;
         }
         
         /* Botones de compartir */
@@ -393,84 +451,18 @@
             box-shadow: 0 15px 30px rgba(52, 183, 241, 0.5);
         }
         
-        /* Modal de zonas horarias corregido */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 900px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-            animation: slideUp 0.4s ease;
-        }
-        
-        .timezone-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
-        }
-        
-        .timezone-card {
-            background: linear-gradient(135deg, #f1f8ff, #e3f2fd);
-            padding: 20px;
-            border-radius: 15px;
-            border: 2px solid #bbdefb;
-            text-align: center;
-            transition: all 0.3s;
-        }
-        
-        .timezone-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            border-color: var(--accent);
-        }
-        
-        .timezone-name {
-            font-weight: 800;
-            color: var(--dark);
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .timezone-time {
-            font-size: 1.8rem;
-            color: var(--primary);
-            font-weight: 900;
-            margin: 15px 0;
-            font-family: 'Poppins', sans-serif;
-        }
-        
         /* Responsive */
         @media (max-width: 992px) {
             h1 {
-                font-size: 2.8rem;
+                font-size: 2.6rem;
             }
             
             .hook-text {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .countdown-unit {
-                min-width: 110px;
+                min-width: 120px;
             }
             
             .countdown-number {
@@ -484,15 +476,15 @@
             }
             
             h1 {
-                font-size: 2.3rem;
+                font-size: 2.2rem;
             }
             
             .hook-text {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .countdown-unit {
-                min-width: 90px;
+                min-width: 100px;
                 padding: 20px 15px;
             }
             
@@ -518,11 +510,11 @@
         
         @media (max-width: 480px) {
             h1 {
-                font-size: 2rem;
+                font-size: 1.9rem;
             }
             
             .countdown-unit {
-                min-width: 70px;
+                min-width: 80px;
                 padding: 15px 10px;
             }
             
@@ -542,44 +534,69 @@
         <header>
             <div class="header-content">
                 <div class="logo-badge">
-                    <i class="fas fa-bolt"></i> SESIÓN URGENTE - HOY 5:00 PM PST
+                    <i class="fas fa-sync-alt"></i> SESIÓN COMPLETA DE 60 MINUTOS
                 </div>
-                <h1>🔥 ¡AUTOMATIZA TU NEGOCIO CON IA EN 30 MINUTOS!</h1>
+                <h1>🔥 AUTOMATIZACIÓN CON IA: SESIÓN COMPLETA</h1>
                 <p class="hook-text">
-                    <span class="highlight">ÚLTIMAS HORAS</span> para descubrir el sistema que está revolucionando negocios en todo el mundo. 
-                    <span class="highlight">Gana 3 horas diarias</span> implementando estas estrategias hoy mismo.
+                    Una sesión completa de <span class="highlight">60 minutos</span> donde aprenderás 
+                    <span class="highlight">todo sobre automatización con IA</span> y cómo implementarlo en tu negocio.
                 </p>
             </div>
         </header>
         
-        <!-- CONTADOR URGENTE CORREGIDO -->
-        <div class="urgent-countdown">
+        <!-- CONTADOR PRINCIPAL -->
+        <div class="main-countdown">
             <div class="countdown-title">
-                <i class="fas fa-hourglass-end"></i> ¡LA SESIÓN COMIENZA EN!
+                <i class="fas fa-clock"></i> PRÓXIMA SESIÓN EN VIVO
             </div>
-            <div id="live-countdown">
+            
+            <div id="next-session-countdown">
                 <div class="countdown-unit">
-                    <span class="countdown-number" id="countdown-hours">00</span>
+                    <span class="countdown-number" id="next-days">00</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-number" id="next-hours">00</span>
                     <span class="countdown-label">Horas</span>
                 </div>
                 <div class="countdown-unit">
-                    <span class="countdown-number" id="countdown-minutes">00</span>
+                    <span class="countdown-number" id="next-minutes">00</span>
                     <span class="countdown-label">Minutos</span>
                 </div>
                 <div class="countdown-unit">
-                    <span class="countdown-number" id="countdown-seconds">00</span>
+                    <span class="countdown-number" id="next-seconds">00</span>
                     <span class="countdown-label">Segundos</span>
                 </div>
             </div>
-            <div class="session-time">
-                <i class="fas fa-clock"></i> Hoy, Lunes 12 de Enero - 5:00 PM (Hora de Los Ángeles)
+            
+            <div class="session-info" id="session-details">
+                <!-- Detalles de la sesión se actualizarán aquí -->
+            </div>
+            
+            <div id="session-status" class="session-status-container status-upcoming">
+                <i class="fas fa-calendar-check"></i> Próxima sesión programada
+            </div>
+            
+            <!-- Agenda de la sesión -->
+            <div class="session-agenda">
+                <h3><i class="fas fa-list-ol"></i> AGENDA DE LA SESIÓN (60 MINUTOS)</h3>
+                <div class="agenda-item">
+                    <div class="agenda-time">5:00 - 5:30 PM</div>
+                    <div class="agenda-title">Parte 1: Introducción a la Automatización con IA</div>
+                    <div class="agenda-description">Fundamentos, casos de éxito y herramientas esenciales</div>
+                </div>
+                <div class="agenda-item">
+                    <div class="agenda-time">5:30 - 6:00 PM</div>
+                    <div class="agenda-title">Parte 2: Recorrido Completo por el Sistema</div>
+                    <div class="agenda-description">Demo en vivo, funciones avanzadas y configuraciones</div>
+                </div>
             </div>
         </div>
         
         <div class="content-wrapper">
             <div class="main-content">
                 <div class="card">
-                    <h2><i class="fas fa-play-circle"></i> MIRA ESTO ANTES DE ENTRAR</h2>
+                    <h2><i class="fas fa-play-circle"></i> VIDEO INTRODUCTORIO</h2>
                     <div class="video-container">
                         <div class="video-player" id="intro-video" data-video-id="cv4RUNoRpZU">
                             <img src="https://img.youtube.com/vi/cv4RUNoRpZU/maxresdefault.jpg" class="video-thumbnail">
@@ -588,21 +605,21 @@
                                     <i class="fas fa-play-circle"></i>
                                 </div>
                                 <div class="video-title">
-                                    El Secreto que No Te Han Contado
+                                    Por Qué la Automatización con IA es Esencial
                                 </div>
                                 <p style="font-size: 1.2rem; max-width: 600px;">
-                                    Descubre por qué el 92% de los negocios que implementan IA duplican sus ingresos en 6 meses
+                                    Descubre cómo transformar tu productividad con herramientas de IA
                                 </p>
                             </div>
                             <div class="video-iframe-container" id="intro-iframe"></div>
                         </div>
                     </div>
                     
-                    <h2><i class="fas fa-video"></i> DETALLES DE LA SESIÓN ZOOM</h2>
+                    <h2><i class="fas fa-video"></i> ACCESO A LA SESIÓN ZOOM</h2>
                     <div style="background: linear-gradient(135deg, #f8f9fa, #e3f2fd); padding: 25px; border-radius: 15px; margin: 25px 0;">
                         <div style="display: flex; align-items: center; margin-bottom: 20px;">
-                            <div style="background: var(--accent); color: white; padding: 12px 20px; border-radius: 10px; font-weight: 800; font-size: 1.3rem;">
-                                <i class="fas fa-calendar-day"></i> HOY MISMO - 5:00 PM PST
+                            <div id="current-session-time" style="background: var(--accent); color: white; padding: 12px 20px; border-radius: 10px; font-weight: 800; font-size: 1.3rem;">
+                                <i class="fas fa-calendar-day"></i> Cargando próxima sesión...
                             </div>
                         </div>
                         
@@ -635,30 +652,29 @@
                             </div>
                         </div>
                         
-                        <button class="cta-button" id="join-now-btn">
-                            <i class="fas fa-door-open"></i> ¡ÚNETE A LA SESIÓN AHORA!
+                        <button class="cta-button" id="join-session-btn">
+                            <i class="fas fa-door-open"></i> UNIRSE A LA SESIÓN
                         </button>
-                        <a href="https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1" target="_blank" id="zoom-direct-link" style="display: none;"></a>
                     </div>
                     
-                    <h2><i class="fas fa-exclamation-triangle"></i> ATENCIÓN: ESTO ES IMPORTANTE</h2>
+                    <h2><i class="fas fa-exclamation-triangle"></i> INFORMACIÓN IMPORTANTE</h2>
                     <div style="background: #FFF3E0; padding: 25px; border-radius: 15px; margin-top: 25px; border-left: 5px solid var(--warning);">
                         <ul style="list-style: none; padding: 0;">
                             <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
                                 <i class="fas fa-clock" style="color: var(--warning); position: absolute; left: 0;"></i>
-                                <strong>La sesión comienza PUNTUAL a las 5:00 PM PST</strong>. Conéctate 10 minutos antes.
+                                <strong>La sesión completa dura 60 minutos</strong> (de 5:00 PM a 6:00 PM PST)
+                            </li>
+                            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                                <i class="fas fa-users" style="color: var(--warning); position: absolute; left: 0;"></i>
+                                <strong>Conéctate puntual</strong> para no perder la introducción inicial
                             </li>
                             <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
                                 <i class="fas fa-wifi" style="color: var(--warning); position: absolute; left: 0;"></i>
-                                Verifica tu conexión a internet antes de unirte.
-                            </li>
-                            <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
-                                <i class="fas fa-download" style="color: var(--warning); position: absolute; left: 0;"></i>
-                                Si es tu primera vez en Zoom, descarga la app desde zoom.us/download
+                                Verifica tu conexión a internet antes de unirte
                             </li>
                             <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
                                 <i class="fas fa-shield-alt" style="color: var(--warning); position: absolute; left: 0;"></i>
-                                <strong>NO compartas</strong> el enlace o código con personas no invitadas.
+                                <strong>NO compartas</strong> el enlace o código con personas no invitadas
                             </li>
                         </ul>
                     </div>
@@ -667,37 +683,50 @@
             
             <div class="side-content">
                 <div class="card">
-                    <h2><i class="fas fa-bullseye"></i> ¿QUÉ LOGRARÁS HOY?</h2>
+                    <h2><i class="fas fa-calendar-alt"></i> PRÓXIMAS SESIONES</h2>
+                    <div id="upcoming-sessions-list" style="margin-top: 20px;">
+                        <!-- Lista de próximas sesiones se generará automáticamente -->
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2><i class="fas fa-bullseye"></i> ¿QUÉ APRENDERÁS?</h2>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 20px; padding: 15px; background: #F3E5F5; border-radius: 10px;">
-                            <div style="color: var(--primary); font-weight: 800; margin-bottom: 5px;">
-                                <i class="fas fa-check-circle"></i> Sistema de Automatización Completo
-                            </div>
-                            Aprende a implementar herramientas de IA en menos de 1 hora.
+                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>Fundamentos de IA</strong> aplicados a la automatización
                         </li>
-                        <li style="margin-bottom: 20px; padding: 15px; background: #E8F5E9; border-radius: 10px;">
-                            <div style="color: var(--success); font-weight: 800; margin-bottom: 5px;">
-                                <i class="fas fa-check-circle"></i> Plantillas Listas para Usar
-                            </div>
-                            Recibe plantillas descargables para empezar inmediatamente.
+                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>Herramientas esenciales</strong> para comenzar hoy mismo
                         </li>
-                        <li style="margin-bottom: 20px; padding: 15px; background: #E3F2FD; border-radius: 10px;">
-                            <div style="color: var(--secondary); font-weight: 800; margin-bottom: 5px;">
-                                <i class="fas fa-check-circle"></i> Soporte Directo con Expertos
-                            </div>
-                            Resuelve tus dudas en tiempo real durante la sesión.
+                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>Recorrido completo</strong> por sistemas de automatización
+                        </li>
+                        <li style="margin-bottom: 15px; padding-left: 30px; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>Casos de éxito</strong> y mejores prácticas
                         </li>
                     </ul>
                 </div>
                 
                 <div class="card">
-                    <h2><i class="fas fa-globe-americas"></i> ¿A QUÉ HORA EN MI PAÍS?</h2>
-                    <button class="timezone-btn" id="show-timezones" style="width: 100%; padding: 18px; background: linear-gradient(90deg, var(--primary), var(--secondary)); color: white; border: none; border-radius: 15px; font-weight: 700; font-size: 1.2rem; cursor: pointer; margin-top: 15px;">
-                        <i class="fas fa-map-marker-alt"></i> VER HORARIOS POR PAÍS
-                    </button>
-                    <p style="margin-top: 15px; font-size: 0.9rem; color: #666; text-align: center;">
-                        Clic aquí para ver la hora exacta en tu país (cálculo preciso)
-                    </p>
+                    <h2><i class="fas fa-users"></i> ¿PARA QUIÉN ES?</h2>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 10px;">
+                            <i class="fas fa-user-tie" style="color: var(--primary); margin-right: 10px;"></i>
+                            Emprendedores y dueños de negocios
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <i class="fas fa-laptop-code" style="color: var(--primary); margin-right: 10px;"></i>
+                            Freelancers y profesionales independientes
+                        </li>
+                        <li style="margin-bottom: 10px;">
+                            <i class="fas fa-chart-line" style="color: var(--primary); margin-right: 10px;"></i>
+                            Personas que buscan aumentar su productividad
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -711,197 +740,290 @@
                 <i class="fas fa-sms"></i> Compartir por SMS
             </button>
         </div>
-        
-        <!-- Modal de zonas horarias CORREGIDO -->
-        <div id="timezoneModal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal" style="position: absolute; top: 20px; right: 25px; font-size: 32px; cursor: pointer; color: var(--dark);">&times;</span>
-                <h2 style="color: var(--dark); margin-bottom: 20px;">
-                    <i class="fas fa-globe-americas"></i> HORA DE LA SESIÓN POR PAÍS
-                </h2>
-                <p style="margin-bottom: 25px; font-size: 1.1rem;">
-                    La sesión comienza <strong>HOY, Lunes 12 de Enero a las 5:00 PM (hora de Los Ángeles)</strong>. 
-                    Estos son los horarios convertidos con precisión:
-                </p>
-                
-                <div class="timezone-grid" id="timezone-container">
-                    <!-- Las zonas horarias se generarán con JavaScript preciso -->
-                </div>
-                
-                <div style="margin-top: 30px; padding: 20px; background: #F3E5F5; border-radius: 15px;">
-                    <p style="margin: 0; color: var(--primary); font-weight: 600;">
-                        <i class="fas fa-info-circle"></i> Todos los cálculos consideran diferencias horarias exactas y horario de verano donde aplica.
-                    </p>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
-        // CONFIGURACIÓN EXACTA: HOY, Lunes 12 de Enero, 5:00 PM PST
-        const targetDate = new Date('2026-01-12T17:00:00-08:00'); // 5:00 PM PST (UTC-8)
-        
-        // Zonas horarias con cálculos PRECISOS
-        const timezoneData = [
-            { name: "Los Ángeles, USA", offset: 0, city: "PST", emoji: "🌅" },
-            { name: "Texas, USA", offset: 2, city: "CST", emoji: "🤠" },
-            { name: "Nueva York, USA", offset: 3, city: "EST", emoji: "🗽" },
-            { name: "Ciudad de México", offset: 2, city: "CST", emoji: "🇲🇽" },
-            { name: "Tegucigalpa, Honduras", offset: 2, city: "CST", emoji: "🇭🇳" },
-            { name: "Bogotá, Colombia", offset: 3, city: "COT", emoji: "🇨🇴" },
-            { name: "Caracas, Venezuela", offset: 4, city: "VET", emoji: "🇻🇪" },
-            { name: "Lima, Perú", offset: 3, city: "PET", emoji: "🇵🇪" },
-            { name: "Madrid, España", offset: 9, city: "CET", emoji: "🇪🇸" }
-        ];
-        
-        // Función para formatear hora EXACTA
-        function formatExactTime(date) {
-            const options = { 
-                hour: 'numeric', 
-                minute: '2-digit', 
-                hour12: true,
-                timeZoneName: 'short'
-            };
-            return date.toLocaleTimeString('es-ES', options);
-        }
-        
-        // Función para formatear fecha
-        function formatExactDate(date) {
-            const options = { 
-                weekday: 'long', 
-                day: 'numeric', 
-                month: 'long',
-                hour: 'numeric',
-                minute: '2-digit'
-            };
-            return date.toLocaleDateString('es-ES', options);
-        }
-        
-        // CONTADOR EN TIEMPO REAL CORREGIDO
-        function updateCountdown() {
+        // CONFIGURACIÓN DE SESIONES AUTOMÁTICAS
+        const SESSION_CONFIG = {
+            startHour: 17, // 5:00 PM
+            startMinute: 0,
+            durationMinutes: 60, // Duración total de 60 minutos
+            weekdays: [1, 2, 3, 4, 5], // Lunes=1, Martes=2, Miércoles=3, Jueves=4, Viernes=5
+            timezone: 'America/Los_Angeles' // Zona horaria de las sesiones
+        };
+
+        // Nombres de los días en español
+        const DAY_NAMES = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+        const MONTH_NAMES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+        // Función para obtener la próxima sesión automáticamente
+        function getNextSession() {
             const now = new Date();
-            const timeDiff = targetDate - now;
+            const today = new Date(now.getTime());
             
-            if (timeDiff <= 0) {
-                // La sesión YA comenzó
-                document.getElementById('live-countdown').innerHTML = `
-                    <div style="text-align: center; padding: 20px;">
-                        <div style="font-size: 3rem; color: #FFD700; margin-bottom: 15px;">
-                            <i class="fas fa-play-circle"></i>
-                        </div>
-                        <div style="font-size: 2rem; font-weight: 800; color: white;">
-                            ¡LA SESIÓN YA COMENZÓ!
-                        </div>
-                        <div style="font-size: 1.2rem; margin-top: 10px;">
-                            Únete ahora mismo para no perderte nada
+            // Crear fecha objetivo para hoy a la hora de la sesión
+            const targetDate = new Date(today);
+            targetDate.setHours(SESSION_CONFIG.startHour, SESSION_CONFIG.startMinute, 0, 0);
+            
+            // Ajustar a la zona horaria de las sesiones
+            const sessionTime = new Date(targetDate.toLocaleString('en-US', { timeZone: SESSION_CONFIG.timezone }));
+            const nowInSessionTZ = new Date(now.toLocaleString('en-US', { timeZone: SESSION_CONFIG.timezone }));
+            
+            // Si ya pasó la sesión de hoy (incluyendo su duración), buscar la próxima
+            const sessionEndTime = new Date(sessionTime);
+            sessionEndTime.setMinutes(sessionEndTime.getMinutes() + SESSION_CONFIG.durationMinutes);
+            
+            if (nowInSessionTZ >= sessionEndTime) {
+                targetDate.setDate(targetDate.getDate() + 1);
+                
+                // Encontrar el próximo día laboral (Lunes a Viernes)
+                while (!SESSION_CONFIG.weekdays.includes(targetDate.getDay())) {
+                    targetDate.setDate(targetDate.getDate() + 1);
+                }
+                
+                // Si hoy es viernes, saltar al lunes
+                if (today.getDay() === 5) { // Viernes
+                    targetDate.setDate(targetDate.getDate() + 2); // Saltar sábado y domingo
+                }
+            }
+            
+            // Asegurarse de que es un día laboral
+            while (!SESSION_CONFIG.weekdays.includes(targetDate.getDay())) {
+                targetDate.setDate(targetDate.getDate() + 1);
+            }
+            
+            return targetDate;
+        }
+
+        // Función para formatear fecha
+        function formatSessionDate(date) {
+            const dayName = DAY_NAMES[date.getDay()];
+            const day = date.getDate();
+            const month = MONTH_NAMES[date.getMonth()];
+            const year = date.getFullYear();
+            
+            // Formatear hora
+            let hours = date.getHours();
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;
+            
+            return `${dayName} ${day} de ${month} ${year} - ${hours}:${minutes} ${ampm}`;
+        }
+
+        // Función para formatear hora
+        function formatTime(date) {
+            let hours = date.getHours();
+            const minutes = date.getMinutes().toString().padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;
+            return `${hours}:${minutes} ${ampm}`;
+        }
+
+        // Función para actualizar el contador y estado
+        function updateSessionInfo() {
+            const nextSession = getNextSession();
+            const now = new Date();
+            
+            // Calcular el final de la sesión
+            const sessionEnd = new Date(nextSession);
+            sessionEnd.setMinutes(sessionEnd.getMinutes() + SESSION_CONFIG.durationMinutes);
+            
+            const timeDiff = nextSession - now;
+            const sessionStatus = document.getElementById('session-status');
+            const joinButton = document.getElementById('join-session-btn');
+            const sessionDetails = document.getElementById('session-details');
+            const currentSessionTime = document.getElementById('current-session-time');
+            
+            // Determinar estado actual
+            if (now < nextSession) {
+                // SESIÓN PROGRAMADA (antes de las 5:00 PM)
+                sessionStatus.className = 'session-status-container status-upcoming';
+                sessionStatus.innerHTML = '<i class="fas fa-calendar-check"></i> Próxima sesión programada';
+                joinButton.innerHTML = '<i class="fas fa-door-open"></i> UNIRSE A LA SESIÓN';
+                joinButton.className = 'cta-button';
+                
+                // Calcular tiempo restante
+                const totalSeconds = Math.floor(timeDiff / 1000);
+                const days = Math.floor(totalSeconds / (3600 * 24));
+                const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+                const minutes = Math.floor((totalSeconds % 3600) / 60);
+                const seconds = totalSeconds % 60;
+                
+                // Actualizar contador
+                document.getElementById('next-days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('next-hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('next-minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('next-seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                sessionDetails.innerHTML = `
+                    <i class="fas fa-calendar-alt"></i> ${formatSessionDate(nextSession)}
+                    <br><small>Sesión completa de 60 minutos (${formatTime(nextSession)} - ${formatTime(sessionEnd)})</small>
+                `;
+                
+                currentSessionTime.innerHTML = `
+                    <i class="fas fa-calendar-day"></i> Próxima sesión: ${formatSessionDate(nextSession)}
+                `;
+                
+            } else if (now >= nextSession && now <= sessionEnd) {
+                // SESIÓN EN CURSO (5:00 PM - 6:00 PM)
+                sessionStatus.className = 'session-status-container status-active';
+                sessionStatus.innerHTML = '<i class="fas fa-broadcast-tower"></i> ¡SESIÓN EN CURSO AHORA MISMO!';
+                joinButton.innerHTML = '<i class="fas fa-running"></i> ¡UNIRSE A LA SESIÓN EN CURSO!';
+                joinButton.className = 'cta-button cta-button-active';
+                
+                // Calcular tiempo transcurrido y restante
+                const timeElapsed = now - nextSession;
+                const timeLeft = sessionEnd - now;
+                
+                const elapsedMinutes = Math.floor(timeElapsed / (1000 * 60));
+                const leftMinutes = Math.floor(timeLeft / (1000 * 60));
+                const leftSeconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                // Mostrar tiempo transcurrido y restante
+                document.getElementById('next-days').textContent = '00';
+                document.getElementById('next-hours').textContent = Math.floor(leftMinutes / 60).toString().padStart(2, '0');
+                document.getElementById('next-minutes').textContent = (leftMinutes % 60).toString().padStart(2, '0');
+                document.getElementById('next-seconds').textContent = leftSeconds.toString().padStart(2, '0');
+                
+                sessionDetails.innerHTML = `
+                    <i class="fas fa-broadcast-tower"></i> SESIÓN EN VIVO AHORA
+                    <br><small>${elapsedMinutes} min transcurridos • ${leftMinutes} min restantes</small>
+                `;
+                
+                currentSessionTime.innerHTML = `
+                    <i class="fas fa-broadcast-tower"></i> SESIÓN EN CURSO - Termina a las ${formatTime(sessionEnd)}
+                `;
+                
+            } else {
+                // SESIÓN FINALIZADA (después de las 6:00 PM)
+                sessionStatus.className = 'session-status-container status-ended';
+                sessionStatus.innerHTML = '<i class="fas fa-check-circle"></i> Sesión finalizada';
+                joinButton.innerHTML = '<i class="fas fa-video"></i> VER GRABACIÓN DE LA SESIÓN';
+                joinButton.className = 'cta-button';
+                
+                // Calcular próxima sesión
+                const newNextSession = getNextSession();
+                const newSessionEnd = new Date(newNextSession);
+                newSessionEnd.setMinutes(newSessionEnd.getMinutes() + SESSION_CONFIG.durationMinutes);
+                
+                const nextTimeDiff = newNextSession - now;
+                const nextDays = Math.floor(nextTimeDiff / (1000 * 3600 * 24));
+                const nextHours = Math.floor((nextTimeDiff % (1000 * 3600 * 24)) / (1000 * 3600));
+                const nextMinutes = Math.floor((nextTimeDiff % (1000 * 3600)) / (1000 * 60));
+                const nextSeconds = Math.floor((nextTimeDiff % (1000 * 60)) / 1000);
+                
+                // Actualizar contador para próxima sesión
+                document.getElementById('next-days').textContent = nextDays.toString().padStart(2, '0');
+                document.getElementById('next-hours').textContent = nextHours.toString().padStart(2, '0');
+                document.getElementById('next-minutes').textContent = nextMinutes.toString().padStart(2, '0');
+                document.getElementById('next-seconds').textContent = nextSeconds.toString().padStart(2, '0');
+                
+                sessionDetails.innerHTML = `
+                    <i class="fas fa-calendar-alt"></i> Próxima sesión: ${formatSessionDate(newNextSession)}
+                    <br><small>Sesión completa de 60 minutos (${formatTime(newNextSession)} - ${formatTime(newSessionEnd)})</small>
+                `;
+                
+                currentSessionTime.innerHTML = `
+                    <i class="fas fa-calendar-day"></i> Próxima sesión: ${formatSessionDate(newNextSession)}
+                `;
+            }
+            
+            // Actualizar lista de próximas sesiones
+            updateUpcomingSessions(nextSession);
+        }
+
+        // Función para actualizar lista de próximas sesiones
+        function updateUpcomingSessions(nextSession) {
+            const container = document.getElementById('upcoming-sessions-list');
+            let sessionsHTML = '';
+            
+            // Generar próximas 3 sesiones
+            for (let i = 0; i < 3; i++) {
+                const sessionDate = new Date(nextSession);
+                
+                // Para la primera sesión, usar la próxima disponible
+                // Para las siguientes, calcular días adicionales
+                if (i > 0) {
+                    sessionDate.setDate(sessionDate.getDate() + 1);
+                    
+                    // Encontrar el próximo día laboral
+                    while (!SESSION_CONFIG.weekdays.includes(sessionDate.getDay())) {
+                        sessionDate.setDate(sessionDate.getDate() + 1);
+                    }
+                }
+                
+                const sessionEnd = new Date(sessionDate);
+                sessionEnd.setMinutes(sessionEnd.getMinutes() + SESSION_CONFIG.durationMinutes);
+                
+                const isNext = i === 0;
+                const sessionTime = `${formatTime(sessionDate)} - ${formatTime(sessionEnd)}`;
+                const sessionFullDate = formatSessionDate(sessionDate);
+                
+                sessionsHTML += `
+                    <div style="background: ${isNext ? '#E8F5E9' : '#F5F5F5'}; padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid ${isNext ? 'var(--success)' : 'var(--accent)'}">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <strong style="color: ${isNext ? 'var(--success)' : 'var(--dark)'}">
+                                    ${isNext ? 'PRÓXIMA' : 'SIGUIENTE'} SESIÓN
+                                </strong>
+                                <div style="margin-top: 5px;">${sessionFullDate}</div>
+                                <div style="font-size: 0.9rem; color: #666;">${sessionTime} PST</div>
+                            </div>
+                            ${isNext ? '<span style="background: var(--success); color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.9rem;"><i class="fas fa-clock"></i> Próxima</span>' : ''}
                         </div>
                     </div>
                 `;
                 
-                document.getElementById('join-now-btn').innerHTML = '<i class="fas fa-running"></i> ¡ENTRAR A ZOOM AHORA!';
-                document.getElementById('join-now-btn').style.background = 'linear-gradient(90deg, #FF5722, #FF9800)';
-                
-                return;
+                // Actualizar nextSession para la siguiente iteración
+                nextSession = new Date(sessionDate);
             }
             
-            // Calcular tiempo restante
-            const totalSeconds = Math.floor(timeDiff / 1000);
-            const hours = Math.floor(totalSeconds / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-            
-            // Actualizar display
-            document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
-            
-            // Cambiar botón cuando falten 10 minutos
-            const joinBtn = document.getElementById('join-now-btn');
-            if (totalSeconds <= 600) { // 10 minutos = 600 segundos
-                joinBtn.innerHTML = '<i class="fas fa-door-open"></i> ¡ENTRAR A ZOOM AHORA!';
-                joinBtn.style.animation = 'pulse 1s infinite';
-            }
+            container.innerHTML = sessionsHTML;
         }
-        
-        // FUNCIÓN PARA CALCULAR ZONAS HORARIAS PRECISAS
-        function calculateExactTimezones() {
-            const container = document.getElementById('timezone-container');
-            container.innerHTML = '';
-            
-            timezoneData.forEach(zone => {
-                // Crear fecha con offset exacto
-                const zoneTime = new Date(targetDate.getTime());
-                zoneTime.setHours(zoneTime.getHours() + zone.offset);
-                
-                const card = document.createElement('div');
-                card.className = 'timezone-card';
-                card.innerHTML = `
-                    <div style="font-size: 2rem; margin-bottom: 10px;">
-                        ${zone.emoji}
-                    </div>
-                    <div class="timezone-name">
-                        ${zone.name}
-                    </div>
-                    <div style="color: #666; font-size: 0.9rem; margin-bottom: 10px;">
-                        ${zone.city}
-                    </div>
-                    <div class="timezone-time">
-                        ${formatExactTime(zoneTime)}
-                    </div>
-                    <div style="color: #666; font-size: 0.9rem; margin-top: 10px;">
-                        ${formatExactDate(zoneTime)}
-                    </div>
-                `;
-                
-                container.appendChild(card);
-            });
-        }
-        
-        // COMPARTIR POR WHATSAPP
+
+        // Función para compartir por WhatsApp
         function shareWhatsApp() {
-            const message = `🔥 ¡ÚNETE A LA SESIÓN DE AUTOMATIZACIÓN CON IA! 
+            const nextSession = getNextSession();
+            const sessionEnd = new Date(nextSession);
+            sessionEnd.setMinutes(sessionEnd.getMinutes() + SESSION_CONFIG.durationMinutes);
+            const sessionDate = formatSessionDate(nextSession);
+            
+            const message = `🚀 ¡ÚNETE A LA SESIÓN COMPLETA DE AUTOMATIZACIÓN CON IA! 
         
-Hoy, Lunes 12 de Enero - 5:00 PM PST
-Aprende a automatizar tu negocio y ganar 3 horas diarias.
+${sessionDate}
+Sesión completa de 60 minutos: 30min Introducción + 30min Recorrido del Sistema
 
 Enlace Zoom: https://us06web.zoom.us/j/2216623617
 ID: 221 662 3617 | Código: 33377
 
-¡No te lo pierdas! 🚀`;
+¡Aprende todo sobre automatización con IA! 🚀`;
             
             const url = `https://wa.me/?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
-        
-        // COMPARTIR POR SMS
+
+        // Función para compartir por SMS
         function shareSMS() {
-            const message = `Únete a la sesión de Automatización con IA hoy a las 5PM PST. Zoom: https://us06web.zoom.us/j/2216623617 ID: 2216623617 Código: 33377`;
+            const nextSession = getNextSession();
+            const sessionDate = formatSessionDate(nextSession);
+            
+            const message = `Únete a la sesión completa de Automatización con IA el ${sessionDate}. Sesión de 60min. Zoom: https://us06web.zoom.us/j/2216623617 ID: 2216623617 Código: 33377`;
             const phoneNumber = '+1234567890'; // CAMBIA ESTE NÚMERO
             
             const url = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
             window.location.href = url;
         }
-        
+
         // INICIALIZACIÓN
         document.addEventListener('DOMContentLoaded', function() {
-            // Contador en tiempo real
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
+            // Inicializar información de sesión
+            updateSessionInfo();
+            setInterval(updateSessionInfo, 1000);
             
-            // Botón de unirse
-            document.getElementById('join-now-btn').addEventListener('click', function() {
+            // Botón para unirse a la sesión
+            document.getElementById('join-session-btn').addEventListener('click', function() {
                 window.open('https://us06web.zoom.us/j/2216623617?pwd=V5mWEJSAwV6wtve4oK9afi7lJdbct2.1', '_blank');
-            });
-            
-            // Modal de zonas horarias
-            document.getElementById('show-timezones').addEventListener('click', function() {
-                calculateExactTimezones();
-                document.getElementById('timezoneModal').style.display = 'flex';
-            });
-            
-            // Cerrar modal
-            document.querySelector('.close-modal').addEventListener('click', function() {
-                document.getElementById('timezoneModal').style.display = 'none';
             });
             
             // Botones para compartir
@@ -925,16 +1047,10 @@ ID: 221 662 3617 | Código: 33377
                 });
             });
             
-            // Cerrar modal al hacer clic fuera
-            window.addEventListener('click', function(event) {
-                const modal = document.getElementById('timezoneModal');
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-            
-            // Precargar zonas horarias
-            calculateExactTimezones();
+            console.log('✅ Sistema de sesiones automáticas activado');
+            console.log('📅 Sesiones programadas: Lunes a Viernes a las 5:00 PM PST');
+            console.log('⏰ Duración: 60 minutos por sesión');
+            console.log('🔄 El contador se actualiza automáticamente');
         });
     </script>
 </body>
